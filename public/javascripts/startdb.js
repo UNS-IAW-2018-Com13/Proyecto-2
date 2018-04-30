@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
 var url = "mongodb://localhost:27017/Torneos";
 
 MongoClient.connect(url, function(err, db) {
@@ -22,23 +23,10 @@ MongoClient.connect(url, function(err, db) {
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   var dbo = db.db("Torneos");
-  var myobj = {   
-        "Trolden": [0,["Trolden1","Trolden2","Trolden3"]],
-        "Amaz": [0, ["Amaz1","Amaz2","Amaz3"]],
-        "Kripp": [0, ["Kripp1","Kripp2","Kripp3"]],
-        "Savjz": [0,["Savjz1","Savjz2","Savjz3"]],
-        "DayNine": [0,0],
-        "Kibler": [0,0],
-        "Firebat":[0,0],
-        "Trump":[0,0],
-        "Dog":[0,0],
-        "Frodan":[0,0],
-        "Toast":[0,0],
-        "Noxious":[0,0],
-        "Thijs":[0,0],
-        "Kolento":[0,0],
-        "Brode":[0,0],
-        "Forsen":[0,0]
+  var myobj = {
+        "nombre": "Trolden",
+        "puntaje": 0,
+        "mazos": ["Trolden1","Trolden2","Trolden3"]
     } ;
   dbo.collection("Jugadores").save(myobj, function(err, res) {
     if (err) throw err;
@@ -46,3 +34,17 @@ MongoClient.connect(url, function(err, db) {
     db.close();
   });
 }); 
+
+const jugadorSchema = new mongoose.Schema({
+  nombre: {
+    type: String,
+    required: true
+  },
+  puntaje: {
+    type: Number,
+    required: true
+  },
+  mazos: [String]
+});
+
+mongoose.model('Jugador', jugadorSchema);

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const torneo = mongoose.model('Torneos');
+const torneo = mongoose.model('Jugador');
 
 const getJugadores = function (req, res) {
   torneo
