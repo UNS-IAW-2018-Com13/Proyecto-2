@@ -1,0 +1,9 @@
+nav {
+    background-color: black;
+    color: white;
+    
+}
+
+.navbar-toggler-icon {
+    background-image: url("../imagenes/icon.png");
+}
