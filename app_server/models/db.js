@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const dBClient = require('mongoose');
+const dbUrl = "mongodb://localhost:27017/Torneos";
 
-const dbURI = 'mongodb://localhost/sols';
-mongoose.connect(dbURI);
+dBClient.connect(dbUrl);
