@@ -9,7 +9,10 @@ const jugadorSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  mazos: [String]
+  mazos: {
+      type: [String],
+      required: true
+  }
 });
 
 mongoose.model('Jugador', jugadorSchema);
