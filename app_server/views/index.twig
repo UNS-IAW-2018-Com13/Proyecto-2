@@ -1,9 +1,20 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-<div class="container">
-    <div class="titulo">
-        <h1>{{title}}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <a href="#"><img src="/images/buttons/jugadores.png" class="img-fluid" alt="JUGADORES"/></a>
+            </div>
+            <div class="col-sm">
+                <a href="#"><img src="../images/buttons/grupos.png" class="img-fluid" alt="GRUPOS"/></a>
+            </div>
+            <div class="col-sm">
+                <a href="#"><img src="../images/buttons/partidos.png" class="img-fluid" alt="PARTIDOS"/></a>
+            </div>
+            <div class="col-sm">
+                <a href="#"><img src="../images/buttons/estadisticas.png" class="img-fluid" alt="ESTADISTICAS"/></a>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}

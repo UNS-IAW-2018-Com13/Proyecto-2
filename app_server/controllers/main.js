@@ -1,6 +1,6 @@
 /* GET home page */
 const index = function(req, res) {
-  res.render('index', { title: 'Inicio' });
+  res.render('index');
 };
 
 module.exports = {
