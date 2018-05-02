@@ -1,11 +1,11 @@
 body{
-    background-image: url("../Imagenes/Style-Def/Background.jpg");
+    background-image: url("/images/style-def/Background.jpg");
     color: sienna;
 }
 
 nav{
     background-color: darkblue;    
-    background-image: url("../Imagenes/Style-Def/Barra.jpg");
+    background-image: url("/images/style-def/Barra.jpg");
 }
 
 #navbarDropdownMenuLink{
@@ -15,12 +15,12 @@ nav{
 }
 
 #ventanaTitulo{
-     background-image: url("../Imagenes/Style-Def/Barra.jpg");
+     background-image: url("/images/style-def/Barra.jpg");
      color: darkgoldenrod;
 }
 
 #ventanaCuerpo{
-     background-image: url("../Imagenes/Style-Def/Background.jpg");
+     background-image: url("/images/style-def/Background.jpg");
      color: sienna;
 }
 
@@ -58,7 +58,7 @@ a{
     font-style: italic;
 }
 #desplegable{
-    background-image: url("../Imagenes/Style-Def/Barra.jpg");
+    background-image: url("/images/style-def/Barra.jpg");
     color: darkgoldenrod;
     font-weight: bold;
 }
