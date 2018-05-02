@@ -1,9 +1,4 @@
-nav {
-    background-color: black;
-    color: white;
-    
-}
-
-.navbar-toggler-icon {
-    background-image: url("../imagenes/icon.png");
+nav{
+    background-color: darkblue;    
+    background-image: url("/images/style-def/barra.jpg");
 }

@@ -22,15 +22,14 @@ function createMainBar(barID) {
     function Icono() {
         mainicon = document.createElement("a");
         mainicon.setAttribute("class", "navbar-brand");
+        //Direccion al clicklear es el #
         mainicon.setAttribute("href", "#");
         micon = document.createElement("img");
-        micon.setAttribute("src", "./imagenes/icon.png");
+        micon.setAttribute("src", "/images/icono.png");
         micon.width = "40";
         micon.height = "40";
         mainicon.appendChild(micon);
-        
-        mainicon.setAttribute("onclick","openNav('contenido', 'barra')");
-        
+
         return mainicon;
     }
 
@@ -46,7 +45,7 @@ function createMainBar(barID) {
         clasico = document.createElement("span");
         clasico.setAttribute("class", "navbar-toggler-icon");
         boton.appendChild(clasico);
-        
+
         return boton;
     }
 
@@ -54,37 +53,124 @@ function createMainBar(barID) {
         cont = document.createElement("div");
         cont.setAttribute("class", "collapse navbar-collapse");
         cont.setAttribute("id", IDdata);
-        
-        donauto= document.createElement("ul");
+
+        donauto = document.createElement("ul");
         donauto.setAttribute("class", "navbar-nav mr-auto mt-2 mt-lg-0");
-        
-        item= document.createElement("li");
+
+        item = document.createElement("li");
         item.setAttribute("class", "nav-item");
-        itemA= document.createElement("a");
+        itemA = document.createElement("a");
         itemA.setAttribute("class", "nav-link");
         itemA.setAttribute("href", "#");
-        itemA.appendChild(document.createTextNode("asd1"));
+        itemA.appendChild(document.createTextNode("Jugadores"));
         item.appendChild(itemA);
         donauto.appendChild(item);
-        
-        item= document.createElement("li");
+
+        item = document.createElement("li");
         item.setAttribute("class", "nav-item");
-        itemA= document.createElement("a");
+        itemA = document.createElement("a");
         itemA.setAttribute("class", "nav-link");
         itemA.setAttribute("href", "#");
-        itemA.appendChild(document.createTextNode("asd2"));
-        item.appendChild(itemA);        
+        itemA.appendChild(document.createTextNode("Grupos"));
+        item.appendChild(itemA);
         donauto.appendChild(item);
+
+
+        item = document.createElement("li");
+        item.setAttribute("class", "nav-item");
+        itemA = document.createElement("a");
+        itemA.setAttribute("class", "nav-link");
+        itemA.setAttribute("href", "#");
+        itemA.appendChild(document.createTextNode("Partidos"));
+        item.appendChild(itemA);
+        donauto.appendChild(item);
+
+
+        item = document.createElement("li");
+        item.setAttribute("class", "nav-item");
+        itemA = document.createElement("a");
+        itemA.setAttribute("class", "nav-link");
+        itemA.setAttribute("href", "#");
+        itemA.appendChild(document.createTextNode("Estadisticas"));
+        item.appendChild(itemA);
+        donauto.appendChild(item);       
         
-        cont.appendChild(donauto);        
+        cont.appendChild(donauto);
         return cont;
     }
 
+    function Desplegable(dropID) {
+        ulEstilos= document.createElement("ul");
+        ulEstilos.setAttribute("class", "navbar-nav");
+        liEstilos= document.createElement("li");
+        liEstilos.setAttribute("class", "nav-item dropdown");
+        aEstilos= document.createElement("a");
+        aEstilos.setAttribute("class", "nav-link dropdown-toggle");
+        aEstilos.setAttribute("id", dropID);
+        aEstilos.setAttribute("href", "#");
+        aEstilos.setAttribute("data-toggle", "dropdown");
+        aEstilos.setAttribute("aria-haspopup", "true");
+        aEstilos.setAttribute("aria-expanded", "false");
+        
+        divEstilos= document.createElement("div");        
+        divEstilos.setAttribute("class", "dropdown-menu");
+        divEstilos.setAttribute("aria-labelledby", dropID);
+        
+        aEstilos.appendChild(divEstilos);
+        liEstilos.appendChild(aEstilos);
+        ulEstilos.appendChild(liEstilos);
+        
+        aOpcion = document.createElement("a");
+        aOpcion.setAttribute("class", "dropdown-item");
+        aOpcion.id = "desplegableI";
+        aOpcion.setAttribute("onclick", "cambiarEstilo('Standard','"+dropID+"')");
+        titulo = document.createTextNode("Standard");
+        aOpcion.appendChild(titulo);
+        divEstilos.appendChild(aOpcion);
+
+        aOpcion = document.createElement("a");
+        aOpcion.id = "desplegableI";
+        aOpcion.setAttribute("class", "dropdown-item");
+        aOpcion.setAttribute("onclick", "cambiarEstilo('Naxxramas','"+dropID+"')");
+        titulo = document.createTextNode("Naxxramas");
+
+        aOpcion.appendChild(titulo);
+        divEstilos.appendChild(aOpcion);   
+        est = obtenerEstilo();
+        if (est !== null) {
+            titDesp = document.createTextNode(est);
+        } else {
+            titDesp = document.createTextNode("Estilos");
+        }          
+        aEstilos.appendChild(titDesp);
+        return ulEstilos;
+    }
+
     bar = barra(barID);
-
     bar.appendChild(Icono());
-    bar.appendChild(Boton("asd"));
-    bar.appendChild(Menu("asd"));
-
+    bar.appendChild(Boton("menuElements"));  
+    menu= Menu("menuElements");
+    menu.appendChild(Desplegable("dropMenu"));
+    bar.appendChild(menu);    
     document.body.insertBefore(bar, document.body.getElementsByTagName("*")[0]);
+
+}
+
+
+function guardarEstilo(idEstilo) {
+    localStorage.setItem("Estilo", idEstilo);
+}
+
+function obtenerEstilo() {
+    return localStorage.getItem("Estilo");
+}
+
+function cambiarEstilo(idEstilo, idBarra) {
+    var tituloDesp = document.getElementById(idBarra);
+    tituloDesp.removeChild(tituloDesp.lastChild);
+    var linkEstilo = document.getElementById("maincss");
+    linkEstilo.href = "/stylesheets/" + idEstilo + ".css";
+    var titDesp = document.createTextNode(idEstilo);
+    tituloDesp.appendChild(titDesp);
+    guardarEstilo(idEstilo);
 }
