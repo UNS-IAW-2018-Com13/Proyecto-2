@@ -25,7 +25,7 @@ function createMainBar(barID) {
         //Direccion al clicklear es el #
         mainicon.setAttribute("href", "#");
         micon = document.createElement("img");
-        micon.setAttribute("src", "/images/icono.png");
+        micon.setAttribute("src", "/images/icons/icono.png");
         micon.width = "40";
         micon.height = "40";
         mainicon.appendChild(micon);
