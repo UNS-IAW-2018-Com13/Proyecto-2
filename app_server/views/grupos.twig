@@ -1,0 +1,88 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <ul class="nav nav-tabs" id="Tabs" role="tablist">
+        <li class="nav-item" onclick="abrirTab('grupoA_Tab')">
+            <a class="nav-link active" id="grupoA_Tab" data-toggle="tab" href="#grupoA" role="tab" aria-controls="grupoA" aria-selected="true">GRUPO A</a>
+        </li>
+        <li class="nav-item" onclick="abrirTab('grupoB_Tab')">
+            <a class="nav-link" id="grupoB_Tab" data-toggle="tab" href="#grupoB" role="tab" aria-controls="grupoB" aria-selected="false">GRUPO B</a>
+        </li>
+        <li class="nav-item" onclick="abrirTab('grupoC_Tab')">
+            <a class="nav-link" id="grupoC_Tab" data-toggle="tab" href="#grupoC" role="tab" aria-controls="grupoC" aria-selected="false">GRUPO C</a>
+        </li>
+        <li class="nav-item" onclick="abrirTab('grupoD_Tab')">
+            <a class="nav-link" id="grupoD_Tab" data-toggle="tab" href="#grupoD" role="tab" aria-controls="grupoD" aria-selected="false">GRUPO D</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="TabsContent">
+        <div class="tab-pane fade show active" id="grupoA" role="tabpanel" aria-labelledby="grupoA_Tab">
+            <div class="container">
+                <table class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th scope="col">Avatar</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Puntuacion</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="tabla_GrupoA">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="grupoB" role="tabpanel" aria-labelledby="grupoB_Tab">
+            <div class="container">
+                <table class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th scope="col">Avatar</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Puntuacion</th>
+
+                        </tr>
+                    </thead>
+                    <tbody  id="tabla_GrupoB">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="grupoC" role="tabpanel" aria-labelledby="grupoC_Tab">
+            <div class="container">
+                <table class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th scope="col">Avatar</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Puntuacion</th>
+
+                        </tr>
+                    </thead>
+                    <tbody  id="tabla_GrupoC">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="grupoD" role="tabpanel" aria-labelledby="grupoD_Tab">
+            <div class="container">
+                <table class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th scope="col">Avatar</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Puntuacion</th>
+
+                        </tr>
+                    </thead>
+                    <tbody  id="tabla_GrupoD">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

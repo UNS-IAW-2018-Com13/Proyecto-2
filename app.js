@@ -9,6 +9,11 @@ const indexRouter = require('./app_server/routes/index');
 const usersRouter = require('./app_server/routes/users');
 const apiRouter = require('./app_server/routes/api');
 
+const jugadoresRouter = require('./app_server/routes/jugadores');
+const gruposRouter = require('./app_server/routes/grupos');
+const partidosRouter = require('./app_server/routes/partidos');
+const estadisticasRouter = require('./app_server/routes/estadisticas');
+
 const app = express();
 
 // view engine setup
@@ -24,6 +29,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
+
+app.use('/jugadores', jugadoresRouter);
+app.use('/grupos', gruposRouter);
+app.use('/partidos', partidosRouter);
+app.use('/estadisticas', estadisticasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
