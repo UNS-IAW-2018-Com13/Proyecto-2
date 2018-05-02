@@ -1,8 +1,8 @@
 /* GET home page */
-const index = function(req, res) {
-  res.render('jugadores', { title: 'Jugadores' });
+const getJugadores = function(req, res) {
+  res.render('jugadores');
 };
 
 module.exports = {
-  index
+  getJugadores
 };

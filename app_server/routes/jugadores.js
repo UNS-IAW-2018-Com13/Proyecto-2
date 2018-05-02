@@ -3,6 +3,6 @@ var router = express.Router();
 const jug = require('../controllers/jug');
 
 /* GET home page. */
-router.get('/jugadores', jug.index);
+router.get('/', jug.getJugadores);
 
 module.exports = router;

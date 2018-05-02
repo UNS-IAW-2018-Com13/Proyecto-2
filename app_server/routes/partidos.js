@@ -3,6 +3,6 @@ var router = express.Router();
 const par = require('../controllers/par');
 
 /* GET home page. */
-router.get('/partidos', par.index);
+router.get('/', par.getPartidos);
 
 module.exports = router;

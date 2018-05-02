@@ -3,6 +3,6 @@ var router = express.Router();
 const grp = require('../controllers/grp');
 
 /* GET home page. */
-router.get('/grupos', grp.index);
+router.get('/', grp.getGrupos);
 
 module.exports = router;

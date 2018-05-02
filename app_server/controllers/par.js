@@ -1,8 +1,8 @@
 /* GET home page */
-const index = function(req, res) {
-  res.render('partidos', { title: 'Partidos' });
+const getPartidos = function(req, res) {
+  res.render('partidos');
 };
 
 module.exports = {
-  index
+  getPartidos
 };

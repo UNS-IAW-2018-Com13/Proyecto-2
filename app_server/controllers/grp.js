@@ -1,8 +1,8 @@
 /* GET home page */
-const index = function(req, res) {
-  res.render('grupos', { title: 'Grupos' });
+const getGrupos = function(req, res) {
+  res.render('grupos');
 };
 
 module.exports = {
-  index
+  getGrupos
 };

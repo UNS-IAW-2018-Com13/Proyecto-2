@@ -1,8 +1,8 @@
 /* GET home page */
-const index = function(req, res) {
-  res.render('estadisticas', { title: 'Estadisticas' });
+const getEstadisticas = function(req, res) {
+  res.render('estadisticas');
 };
 
 module.exports = {
-  index
+  getEstadisticas
 };
