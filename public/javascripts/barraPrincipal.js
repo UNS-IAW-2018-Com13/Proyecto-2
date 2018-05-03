@@ -22,8 +22,7 @@ function createMainBar(barID) {
     function Icono() {
         mainicon = document.createElement("a");
         mainicon.setAttribute("class", "navbar-brand");
-        //Direccion al clicklear es el #
-        mainicon.setAttribute("href", "#");
+        mainicon.setAttribute("href", "/");
         micon = document.createElement("img");
         micon.setAttribute("src", "/images/icons/icono.png");
         micon.width = "40";
@@ -61,7 +60,7 @@ function createMainBar(barID) {
         item.setAttribute("class", "nav-item");
         itemA = document.createElement("a");
         itemA.setAttribute("class", "nav-link");
-        itemA.setAttribute("href", "#");
+        itemA.setAttribute("href", "jugadores");
         itemA.appendChild(document.createTextNode("Jugadores"));
         item.appendChild(itemA);
         donauto.appendChild(item);
@@ -70,7 +69,7 @@ function createMainBar(barID) {
         item.setAttribute("class", "nav-item");
         itemA = document.createElement("a");
         itemA.setAttribute("class", "nav-link");
-        itemA.setAttribute("href", "#");
+        itemA.setAttribute("href", "grupos");
         itemA.appendChild(document.createTextNode("Grupos"));
         item.appendChild(itemA);
         donauto.appendChild(item);
@@ -80,7 +79,7 @@ function createMainBar(barID) {
         item.setAttribute("class", "nav-item");
         itemA = document.createElement("a");
         itemA.setAttribute("class", "nav-link");
-        itemA.setAttribute("href", "#");
+        itemA.setAttribute("href", "partidos");
         itemA.appendChild(document.createTextNode("Partidos"));
         item.appendChild(itemA);
         donauto.appendChild(item);
@@ -90,7 +89,7 @@ function createMainBar(barID) {
         item.setAttribute("class", "nav-item");
         itemA = document.createElement("a");
         itemA.setAttribute("class", "nav-link");
-        itemA.setAttribute("href", "#");
+        itemA.setAttribute("href", "estadisticas");
         itemA.appendChild(document.createTextNode("Estadisticas"));
         item.appendChild(itemA);
         donauto.appendChild(item);       
