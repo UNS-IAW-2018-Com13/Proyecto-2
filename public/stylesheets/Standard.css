@@ -3,71 +3,20 @@ body{
     color: sienna;
 }
 
+.text{
+    color: darkgoldenrod;    
+}
+
 nav{
-    background-color: darkblue;    
     background-image: url("/images/style-def/Barra.jpg");
 }
 
-#navbarDropdownMenuLink{
-    color: darkgoldenrod;   
-    font-weight: bold;
-    font-style: italic;
-}
-
-#ventanaTitulo{
-     background-image: url("/images/style-def/Barra.jpg");
-     color: darkgoldenrod;
-}
-
-#ventanaCuerpo{
-     background-image: url("/images/style-def/Background.jpg");
-     color: sienna;
-}
-
-button{
-    background-color: transparent;
-    color: sienna;
-    font-style: italic;
-}
-
-a{
-    color: sienna;
-}
-#grupoA_Tab{
-    background-color: transparent;
-    color:sienna;
-}
-
-#grupoB_Tab{
-    background-color: transparent;
-    color:sienna;
-}
-
-#grupoC_Tab{
-    background-color: transparent;
-    color:sienna;
-}
-
-#grupoD_Tab{
-    background-color: transparent;
-    color:sienna;
-}
-#Tabs{
-    color: sienna;   
-    font-weight: bold;
-    font-style: italic;
-}
-#desplegable{
-    background-image: url("/images/style-def/Barra.jpg");
+.nav-link{
     color: darkgoldenrod;
     font-weight: bold;
 }
-#desplegableI{
-    background-color: transparent;
+
+.dropdown-toggle{    
     color: darkgoldenrod;
-    font-weight: bold;
-}
-#BarraLinkC{
-    color: darkgoldenrod;
-    font-weight: bold;
+    font-style: italic;
 }
