@@ -14,7 +14,7 @@ function createMainBar(barID) {
     function barra(ID) {
         bar = document.createElement("nav");
         bar.id = ID;
-        bar.setAttribute("class", "navbar navbar-expand-lg navbar-dark");
+        bar.setAttribute("class", "navbar navbar-expand-lg");
         return bar;
     }
 
@@ -43,6 +43,7 @@ function createMainBar(barID) {
         boton.setAttribute("aria-label", "Toggle navigation");
         clasico = document.createElement("span");
         clasico.setAttribute("class", "navbar-toggler-icon");
+        clasico.appendChild(document.createTextNode("\u2630"));
         boton.appendChild(clasico);
 
         return boton;

@@ -1,16 +1,22 @@
 body{
     background-image: url("/images/style-def/Background.jpg");
     color: sienna;
-}
-
-.text{
-    color: darkgoldenrod;    
+    
 }
 
 nav{
     background-image: url("/images/style-def/Barra.jpg");
 }
 
+.navbar-toggler-icon{
+    color: darkgoldenrod;
+}
+
+.navbar-toggler{
+    border-color: darkgoldenrod;
+}
+
+    
 .nav-link{
     color: darkgoldenrod;
     font-weight: bold;
@@ -19,4 +25,42 @@ nav{
 .dropdown-toggle{    
     color: darkgoldenrod;
     font-style: italic;
+}
+
+.dropdown-menu{
+    color: darkgoldenrod;
+    font-style: italic;
+    background-image: url("/images/style-def/Barra.jpg");
+}
+
+.nav-tabs > .nav-item > .nav-link{
+    background-color: transparent;
+    color:sienna;
+    font-style: italic; 
+}
+
+.nav-link:hover{
+    color:sienna;
+}
+
+.modal-body{
+    background-image: url("/images/style-def/Background.jpg");
+    color:sienna
+}
+
+.modal-header{
+    color: darkgoldenrod;
+    background-image: url("/images/style-def/Barra.jpg");
+}
+
+button > span{
+    color:darkgoldenrod;
+}
+
+a .btn-social{
+    color: white;
+}
+
+.modal-body > div > div{
+    color: white;
 }
