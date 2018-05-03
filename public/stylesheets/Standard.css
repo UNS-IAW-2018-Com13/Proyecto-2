@@ -32,11 +32,17 @@ nav{
     font-style: italic;
     background-image: url("/images/style-def/Barra.jpg");
 }
-
+.dropdown-item:hover{
+    background-color: transparent;
+}
 .nav-tabs > .nav-item > .nav-link{
     background-color: transparent;
     color:sienna;
     font-style: italic; 
+}
+
+.nav-tabs > .nav-item > .nav-link:hover{
+    background-color: #b86607;
 }
 
 .nav-link:hover{
@@ -55,12 +61,4 @@ nav{
 
 button > span{
     color:darkgoldenrod;
-}
-
-a .btn-social{
-    color: white;
-}
-
-.modal-body > div > div{
-    color: white;
 }

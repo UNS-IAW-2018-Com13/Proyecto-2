@@ -8,86 +8,68 @@ nav{
     background-image: url("/images/style-naxx/Barra.jpg");
 }
 
-#navbarDropdownMenuLink{
+.navbar-toggler-icon{
+    color: yellowgreen;
+    text-shadow: 0px 0px 10px yellowgreen;
+}
+
+.navbar-toggler{
+    border-color: yellowgreen;
+}
+
+    
+.nav-link{
+    color: yellowgreen;
+    text-shadow: 0px 0px 10px yellowgreen;
+    font-weight: bold;
+}
+
+.dropdown-toggle{    
     color: yellowgreen;
     text-shadow: 0px 0px 10px yellowgreen;
     font-weight: bold;
     font-style: italic;
 }
 
-a{
+.dropdown-menu{
     color: yellowgreen;
     text-shadow: 0px 0px 10px yellowgreen;
+    font-weight: bold;
+    font-style: italic;    
+    background-image: url("/images/style-naxx/Barra.jpg");
 }
-
-#Tabs{
+.dropdown-item:hover{
+    background-color: transparent;
+}
+.nav-tabs > .nav-item > .nav-link{
+    background-color: transparent;
     color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;  
+    text-shadow: 0px 0px 10px yellowgreen;
     font-weight: bold;
     font-style: italic;
 }
 
-#BarraLinkC{
+.nav-tabs > .nav-item > .nav-link:hover{
+    background-color: #202050;
+}
+
+.nav-link:hover{
+    color:yellowgreen;
+}
+
+.modal-body{
+    background-image: url("/images/style-naxx/Background.jpg");
     color: yellowgreen;
     text-shadow: 0px 0px 10px yellowgreen;
-    font-weight: bold;
 }
-#ventanaTitulo{
+
+.modal-header{
+    color: yellowgreen;
+    text-shadow: 0px 0px 10px yellowgreen;
     background-image: url("/images/style-naxx/Barra.jpg");
-    color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;
-    font-weight: bold;
 }
 
-#ventanaCuerpo{
-    background-image: url("/images/style-naxx/Barra.jpg");
+button > span{
     color: yellowgreen;
     text-shadow: 0px 0px 10px yellowgreen;
-}
-
-button{
-    background-color: transparent;
-    color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;
-    font-style: italic;
-}
-
-a{
-    color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;
-}
-#grupoA_Tab{
-    background-color: transparent;
-    color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;
-}
-
-#grupoB_Tab{
-    background-color: transparent;
-    color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;
-}
-
-#grupoC_Tab{
-    background-color: transparent;
-    color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;
-}
-
-#grupoD_Tab{
-    background-color: transparent;
-    color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;
-}
-#desplegable{
-    background-image: url("/images/style-naxx/Barra.jpg");
-    color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;
-    font-weight: bold;
-}
-#desplegableI{
-    background-color: transparent;
-    color: yellowgreen;
-    text-shadow: 0px 0px 10px yellowgreen;
-    font-weight: bold;
 }
