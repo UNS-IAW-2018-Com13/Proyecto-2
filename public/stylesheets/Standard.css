@@ -46,7 +46,7 @@ nav{
 }
 
 .nav-link:hover{
-    color:sienna;
+    color: sienna;
 }
 
 .modal-body{
@@ -61,4 +61,17 @@ nav{
 
 button > span{
     color:darkgoldenrod;
+}
+
+
+.btn-primary {
+	background-color: transparent;
+	border-color: darkgoldenrod;
+	color: darkgoldenrod;
+}
+
+.btn-primary:hover {
+	background-color: sienna;
+	border-color: darkgoldenrod;
+	color: #000080;
 }

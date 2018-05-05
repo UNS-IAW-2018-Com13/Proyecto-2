@@ -15,15 +15,49 @@
         <script src="/javascripts/barraPrincipal.js"></script>
 
     </head>
-    <body onload="createMainBar('principal');">
-        
-    {% block body %}{% endblock %}
-    
-    <!-- Modal -->
-    <!-- Button trigger modal -->
+    <body>
+        <nav id="principal" class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="/">
+                <img src="/images/icons/icono.png" width="40" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuElements" aria-controls="menuElements" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">&#9776;</span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuElements">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="jugadores">Jugadores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grupos">Grupos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="partidos">Partidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="estadisticas">Estadisticas</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Standard</a>
+                        <div class="dropdown-menu" aria-labelledby="dropMenu">
+                            <a class="dropdown-item" id="desplegableI" onclick="cambiarEstilo('Standard', 'dropMenu')">Standard</a>
+                            <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('Naxxramas', 'dropMenu')">Naxxramas</a>
+                        </div>
+                    </li>
+					<!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ventanaLogin">
         LOGIN
     </button>
+                </ul>
+            </div>
+        </nav>
+    {% block body %}{% endblock %}
+
+    <!-- Modal -->
+    
     <div class="modal fade" id="ventanaLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
