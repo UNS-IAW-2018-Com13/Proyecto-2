@@ -6,8 +6,6 @@ const logger = require('morgan');
 require('./app_server/models/db');
 
 const indexRouter = require('./app_server/routes/index');
-const apiRouter = require('./app_server/routes/api');
-
 const jugadoresRouter = require('./app_server/routes/jugadores');
 const gruposRouter = require('./app_server/routes/grupos');
 const partidosRouter = require('./app_server/routes/partidos');
@@ -26,8 +24,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/api', apiRouter);
-
 app.use('/jugadores', jugadoresRouter);
 app.use('/grupos', gruposRouter);
 app.use('/partidos', partidosRouter);

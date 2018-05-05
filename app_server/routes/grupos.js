@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const grp = require('../controllers/grp');
+const gruposCtrl = require('../controllers/grupos');
 
 /* GET home page. */
-router.get('/', grp.getGrupos);
+router.get('/', gruposCtrl.getGrupos);
 
 module.exports = router;

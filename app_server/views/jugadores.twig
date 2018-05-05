@@ -1,82 +1,106 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-<div class="container">
-    <table class="table table-striped" >
-        <thead>
-            <tr>
-                <th id="cabeceras" scope="col">Avatar</th>
-                <th id="cabeceras" scope="col">Nombre</th>
-                <th id="cabeceras" scope="col">Puntuacion</th>
-                <th id="cabeceras" scope="col">Favorito</th>
+    <div class="container">
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th id="cabeceras" scope="col">Avatar</th>
+                    <th id="cabeceras" scope="col">Nombre</th>
+                    <th id="cabeceras" scope="col">Puntaje</th>
+                    <th id="cabeceras" scope="col">Favorito</th>
+                </tr>
+            </thead>
+            <tbody >
+                {% for jugador in jugadores %}
+                    {% for mazo in mazos %}
+                        {% if mazo.nombre == jugador.mazos[0] %}
+                            {% set claseMazo1 = mazo.clase %}
+                        {% endif %}
+                        {% if mazo.nombre == jugador.mazos[1] %}
+                            {% set claseMazo2 = mazo.clase %}
+                        {% endif %}
+                        {% if mazo.nombre == jugador.mazos[2] %}
+                            {% set claseMazo3 = mazo.clase %}
+                        {% endif %}
+                    {% endfor %}
+                    <tr data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.favorito }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
+                        <td>
+                            <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
+                        </td>
+                        <td>
+                            {{ jugador.nombre }}
+                        </td>
+                        <td>
+                            {{ jugador.puntaje }}
+                        </td>
+                        <td>
+                            {{ jugador.favorito }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="ventanaJugador" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="ventanaTitulo">
+                    <h5 class="modal-title" id="tituloVentana">JUGADOR X</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="ventanaCuerpo">
 
-            </tr>
-        </thead>
-        <tbody >
-
-        </tbody>
-    </table>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="ventanaJugador" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header" id="ventanaTitulo">
-                <h5 class="modal-title" id="tituloVentana">JUGADOR X</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="ventanaCuerpo">
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <img src="" alt="AVATAR" id="avatarJugador"/>
-                        </div>
-                        <div class="col-sm">
-                            <table class="table">
-                                <tbody >
-                                    <tr>
-                                        <th>Nombre:</th>
-                                        <td id="nombreJugador">Jugador X</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Puntuacion:</th>
-                                        <td id="puntuacionJugador">9999</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Favorito:</th>
-                                        <td id="favoritoJugador">si/no</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <img src="" alt="AVATAR" id="avatarJugador"/>
+                            </div>
+                            <div class="col-sm">
+                                <table class="table">
+                                    <tbody >
+                                        <tr>
+                                            <th>Nombre:</th>
+                                            <td id="nombreJugador">Jugador X</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Puntaje:</th>
+                                            <td id="puntajeJugador">9999</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Favorito:</th>
+                                            <td id="favoritoJugador">si/no</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <td scope="col">
-                                    <img src="" alt="MAZO 1" id="imagenMazo1"/>
-                                </td>
-                                <th scope="col"> </th>
-                                <td scope="col">
-                                    <img src="" alt="MAZO 2"id="imagenMazo2"/>
-                                </td>
-                                <th scope="col"> </th>
-                                <td scope="col">
-                                    <img src="" alt="MAZO 3"id="imagenMazo3"/>
-                                </td>
-                                <th scope="col"> </th>
-                            </tr>
-                        </thead>
-                    </table>
+                    <div class="container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td scope="col">
+                                        <img src="" alt="MAZO 1" id="imagenMazo1"/>
+                                    </td>
+                                    <th scope="col"> </th>
+                                    <td scope="col">
+                                        <img src="" alt="MAZO 2"id="imagenMazo2"/>
+                                    </td>
+                                    <th scope="col"> </th>
+                                    <td scope="col">
+                                        <img src="" alt="MAZO 3"id="imagenMazo3"/>
+                                    </td>
+                                    <th scope="col"> </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

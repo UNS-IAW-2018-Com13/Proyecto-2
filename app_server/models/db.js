@@ -37,3 +37,6 @@ process.on('SIGTERM', () => {
 });
 
 require('./jugadores');
+require('./grupos');
+require('./partidos');
+require('./mazos');

@@ -9,10 +9,14 @@ const jugadorSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  favorito: {
+    type: Boolean,
+    required: true
+  },
   mazos: {
       type: [String],
       required: true
   }
 });
 
-mongoose.model('Jugador', jugadorSchema);
+mongoose.model('Jugador', jugadorSchema, 'Jugadores');
