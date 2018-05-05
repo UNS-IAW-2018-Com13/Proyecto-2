@@ -1,11 +1,11 @@
 body{
-    background-image: url("/images/style-naxx/Background.jpg");
+    background-image: url("/images/style-naxx/background.jpg");
     color: yellowgreen;
     text-shadow: 0px 0px 10px yellowgreen;
 }
 
 nav{  
-    background-image: url("/images/style-naxx/Barra.jpg");
+    background-image: url("/images/style-naxx/barra.jpg");
 }
 
 .navbar-toggler-icon{
@@ -36,7 +36,7 @@ nav{
     text-shadow: 0px 0px 10px yellowgreen;
     font-weight: bold;
     font-style: italic;    
-    background-image: url("/images/style-naxx/Barra.jpg");
+    background-image: url("/images/style-naxx/barra.jpg");
 }
 .dropdown-item:hover{
     background-color: transparent;
@@ -58,7 +58,7 @@ nav{
 }
 
 .modal-body{
-    background-image: url("/images/style-naxx/Background.jpg");
+    background-image: url("/images/style-naxx/background.jpg");
     color: yellowgreen;
     text-shadow: 0px 0px 10px yellowgreen;
 }
@@ -66,7 +66,7 @@ nav{
 .modal-header{
     color: yellowgreen;
     text-shadow: 0px 0px 10px yellowgreen;
-    background-image: url("/images/style-naxx/Barra.jpg");
+    background-image: url("/images/style-naxx/barra.jpg");
 }
 
 button > span{

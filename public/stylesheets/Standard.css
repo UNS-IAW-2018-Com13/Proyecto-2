@@ -1,11 +1,11 @@
 body{
-    background-image: url("/images/style-def/Background.jpg");
+    background-image: url("/images/style-def/background.jpg");
     color: sienna;
     
 }
 
 nav{
-    background-image: url("/images/style-def/Barra.jpg");
+    background-image: url("/images/style-def/barra.jpg");
 }
 
 .navbar-toggler-icon{
@@ -30,7 +30,7 @@ nav{
 .dropdown-menu{
     color: darkgoldenrod;
     font-style: italic;
-    background-image: url("/images/style-def/Barra.jpg");
+    background-image: url("/images/style-def/barra.jpg");
 }
 .dropdown-item:hover{
     background-color: transparent;
@@ -50,13 +50,13 @@ nav{
 }
 
 .modal-body{
-    background-image: url("/images/style-def/Background.jpg");
+    background-image: url("/images/style-def/background.jpg");
     color:sienna
 }
 
 .modal-header{
     color: darkgoldenrod;
-    background-image: url("/images/style-def/Barra.jpg");
+    background-image: url("/images/style-def/barra.jpg");
 }
 
 button > span{
