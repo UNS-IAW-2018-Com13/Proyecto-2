@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const est = require('../controllers/est');
+const estadisticasCtrl = require('../controllers/estadisticas');
 
 /* GET home page. */
-router.get('/', est.getEstadisticas);
+router.get('/', estadisticasCtrl.getEstadisticas);
 
 module.exports = router;

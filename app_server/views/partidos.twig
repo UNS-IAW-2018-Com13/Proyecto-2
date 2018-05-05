@@ -14,7 +14,28 @@
                 </tr>
             </thead>
             <tbody>
-
+                {% for partido in partidos %}
+                    <tr>
+                        <td>
+                            {{ partido.fecha }}
+                        </td>
+                        <td>
+                            {{ partido.hora }}
+                        </td>
+                        <td>
+                            {{ partido.jugador1 }}
+                        </td>
+                        <td>
+                            {{ partido.puntajeJugador1 }}
+                        </td>
+                        <td>
+                            {{ partido.jugador2 }}
+                        </td>
+                        <td>
+                            {{ partido.puntajeJugador2 }}
+                        </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
