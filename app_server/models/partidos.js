@@ -17,12 +17,24 @@ const partidoSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  mazosJugador1: {
+    type: [Number],
+    required: true
+  },
   jugador2: {
     type: String,
     required: true
   },
   puntajeJugador2: {
     type: Number,
+    required: true
+  },
+  mazosJugador2: {
+    type: [Number],
+    required: true
+  },
+  ganador: {
+    type: [Number],
     required: true
   },
   editor: {
