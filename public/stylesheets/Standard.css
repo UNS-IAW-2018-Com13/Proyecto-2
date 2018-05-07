@@ -34,6 +34,7 @@ nav{
 }
 .dropdown-item:hover{
     background-color: transparent;
+    cursor: pointer;
 }
 .nav-tabs > .nav-item > .nav-link{
     background-color: transparent;
@@ -74,4 +75,9 @@ button > span{
 	background-color: sienna;
 	border-color: darkgoldenrod;
 	color: #000080;
+}
+
+tbody > tr:hover{
+    cursor: pointer;
+    background-image: url("/images/style-def/barra.jpg");
 }
