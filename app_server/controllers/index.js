@@ -13,7 +13,7 @@ const postIndex = function (req, res) {
             res.status(404).json(err);
         }
     });
-
+    console.log(res);
     if (res === null) {
         var user = new Usuario({"id": idU, "nombre": nomU, "estilo": "asd", "favoritos": [1, 2, 3]});
 
