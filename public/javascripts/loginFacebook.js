@@ -49,6 +49,6 @@ function cargarDatos(){
 function desactivarFavoritos(){
     FB.api('/me', function (response) {
         console.log(response);
-        $.post('/', {"nombre": response.name, "id": response.userID});
+        $.post('/', {"nombre": response.name, "id": response.id});
     });
 }

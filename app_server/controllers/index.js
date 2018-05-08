@@ -13,7 +13,7 @@ const postIndex = function(req, res) {
  
   user.save(function (err, res) {
     if (err) return console.error(err);
-    console.log(idU + " " + nomU);
+    console.log("guardo en DB" + idU + " " + nomU);
   });
   
   res.send("");
