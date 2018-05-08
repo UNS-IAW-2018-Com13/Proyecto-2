@@ -9,8 +9,12 @@ const jugadorSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  idFavorito: {
+    type: Number,
+    required: true
+  },
   favorito: {
-    type: Boolean,
+    type: Number,
     required: true
   },
   mazos: {
