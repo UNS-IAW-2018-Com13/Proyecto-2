@@ -13,20 +13,12 @@ const partidoSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  puntajeJugador1: {
-    type: Number,
-    required: true
-  },
   mazosJugador1: {
     type: [Number],
     required: true
   },
   jugador2: {
     type: String,
-    required: true
-  },
-  puntajeJugador2: {
-    type: Number,
     required: true
   },
   mazosJugador2: {
