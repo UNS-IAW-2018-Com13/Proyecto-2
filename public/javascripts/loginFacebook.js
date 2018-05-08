@@ -3,7 +3,8 @@ function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     if (response.status === 'connected') {
-        cargarDatos();
+        //cargarDatos();
+        desactivarFavoritos();
     } else {
         //desactivarFavoritos();
     }
@@ -42,5 +43,12 @@ function cargarDatos(){
     FB.api('/me', function (response) {
         console.log('Successful login for: ' + response.name);
         document.getElementById('status').innerHTML = response.name;
+    });
+}
+
+function desactivarFavoritos(){
+    FB.api('/me', function (response) {
+        console.log(response);
+        $.post('/', {"nombre": response.name, "id": response.authResponse.userID});
     });
 }
