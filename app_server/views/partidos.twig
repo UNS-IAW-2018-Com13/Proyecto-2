@@ -15,6 +15,15 @@
             </thead>
             <tbody>
                 {% for partido in partidos %}
+                    {% set p1 = 0 %}
+                    {% set p2 = 0 %}
+                    {% for g in partido.ganador %}
+                        {% if g == 1 %}
+                            {% set p1 = p1 + 1 %}
+                        {% else %}
+                            {% set p2 = p2 + 1 %}
+                        {% endif %}
+                    {% endfor %}
                     <tr>
                         <td>
                             {{ partido.fecha }}
@@ -26,13 +35,13 @@
                             {{ partido.jugador1 }}
                         </td>
                         <td>
-                            {{ partido.puntajeJugador1 }}
+                            {{ p1 }}
                         </td>
                         <td>
                             {{ partido.jugador2 }}
                         </td>
                         <td>
-                            {{ partido.puntajeJugador2 }}
+                            {{ p2 }}
                         </td>
                     </tr>
                 {% endfor %}
