@@ -11,7 +11,7 @@
                     <th id="cabeceras" scope="col">Favorito</th>
                 </tr>
             </thead>
-            <tbody >
+            <tbody>
                 {% for jugador in jugadores %}
                     {% for mazo in mazos %}
                         {% if mazo.nombre == jugador.mazos[0] %}
@@ -25,13 +25,13 @@
                         {% endif %}
                     {% endfor %}
                     <tr>
-                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.favorito }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
+                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                             <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
                         </td>
-                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.favorito }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
+                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                             {{ jugador.nombre }}
                         </td>
-                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.favorito }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
+                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                             {{ jugador.puntaje }}
                         </td>
                         <td onclick="seleccionarFavoritos('{{ jugador.nombre }}');">
@@ -69,10 +69,6 @@
                                         <tr>
                                             <th>Puntaje:</th>
                                             <td id="puntajeJugador">9999</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Favorito:</th>
-                                            <td id="favoritoJugador">si/no</td>
                                         </tr>
                                     </tbody>
                                 </table>

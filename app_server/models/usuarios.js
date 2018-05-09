@@ -1,21 +1,17 @@
 const mongoose = require('mongoose');
 
 const jugadorSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    required: true
-  },
-  nombre: {
+  idUser: {
     type: String,
     required: true
   },
   estilo: {
     type: String,
-    required: true
+    default: "Standard"
   },
   favoritos: {
     type: [Number],
-    required: true
+    default: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
   }
 });
 
