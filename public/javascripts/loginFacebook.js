@@ -3,7 +3,6 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') {
         cargarDatosUsuario();
     } else {
-        //desactivarFavoritos();
     }
 }
 
@@ -38,6 +37,8 @@ window.fbAsyncInit = function () {
 
 function cargarDatosUsuario(){
     FB.api('/me', function (response) {
-        $.post('/', {"nombre": response.name, "id": response.id});
+        $.post('/', {"nombre": response.name, "id": response.id}, function(req, res){
+            console.log(res.body);
+        });
     });
 }

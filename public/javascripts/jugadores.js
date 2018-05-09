@@ -1,4 +1,4 @@
-function completarModalJugadores(nombre, puntaje, favorito, I1, I2, I3){
+function completarModalJugadores(nombre, puntaje, I1, I2, I3){
    var titulo = document.getElementById("tituloVentana");
    titulo.removeChild(titulo.firstChild);
    titulo.appendChild(document.createTextNode(nombre));
@@ -10,10 +10,6 @@ function completarModalJugadores(nombre, puntaje, favorito, I1, I2, I3){
    var puntajeJugador = document.getElementById("puntajeJugador");
    puntajeJugador.removeChild(puntajeJugador.firstChild);
    puntajeJugador.appendChild(document.createTextNode(puntaje));
-   
-   var favoritoJugador = document.getElementById("favoritoJugador");
-   favoritoJugador.removeChild(favoritoJugador.firstChild);
-   favoritoJugador.appendChild(document.createTextNode(favorito));
    
    var avatar = document.getElementById("avatarJugador");
    avatar.setAttribute("src","images/portraits/portrait"+nombre+".jpg");
