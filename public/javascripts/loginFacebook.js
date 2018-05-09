@@ -40,7 +40,20 @@ function cargarDatosUsuario(){
         $.post('/', {"nombre": response.name, "id": response.id}, function(req, res){
             var estilo = res.body.estilo;
             var favoritos = res.body.favoritos;
-            document.getElementById("cuerpo").appendChild(document.createTextNode(estilo +" "+ favoritos));
+            guardarDatos(estilo, favoritos);
         });
     });
+}
+
+function guardarDatos(idEstilo, favs){
+    localStorage.setItem("Estilo",idEstilo);
+    localStorage.setItem("Favoritos",favs);
+}
+
+function obtenerEstilo(){
+    return localStorage.getItem("Estilo");
+}
+
+function obtenerFavoritos(){
+    return localStorage.getItem("Favoritos");
 }
