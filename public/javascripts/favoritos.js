@@ -3,8 +3,7 @@ function seleccionarFavoritos(jnom) {
         if (response === "connected") {
             document.getElementById("iconoFav" + jnom).src = "/images/icons/fav_std.png";
         } else {
-            FB.login(function (response) {
-            });
+            window.alert("Tenes que loguearte con facebook para poder seleccionar favoritos.");
         }
     });
 }
