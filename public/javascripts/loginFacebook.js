@@ -1,10 +1,7 @@
 
 function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
     if (response.status === 'connected') {
-        //cargarDatos();
-        desactivarFavoritos();
+        cargarDatosUsuario();
     } else {
         //desactivarFavoritos();
     }
@@ -39,16 +36,8 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-function cargarDatos(){
+function cargarDatosUsuario(){
     FB.api('/me', function (response) {
-        console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML = response.name;
-    });
-}
-
-function desactivarFavoritos(){
-    FB.api('/me', function (response) {
-        console.log(response);
         $.post('/', {"nombre": response.name, "id": response.id});
     });
 }
