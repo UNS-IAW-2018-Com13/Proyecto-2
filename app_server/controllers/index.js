@@ -6,7 +6,7 @@ const getIndex = function (req, res) {
 };
 
 const postIndex = function (req, res) {
-    Usuario.update({id: req.body.id},
+    Usuario.update({idUser: req.body.id},
             {upsert: true, setDefaultsOnInsert: true}, (err, resultado) => {
         if (err) {
             res.status(400).json(err);

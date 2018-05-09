@@ -37,7 +37,7 @@ window.fbAsyncInit = function () {
 
 function cargarDatosUsuario(){
     FB.api('/me', function (response) {
-        $.post('/', {"nombre": response.name, "id": response.id}, function(req, res){
+        $.post('/', {"idUser": response.id}, function(req, res){
             var estilo = res.body.estilo;
             var favoritos = res.body.favoritos;
             guardarDatos(estilo, favoritos);
