@@ -11,7 +11,7 @@
                     <th id="cabeceras" scope="col">Favorito</th>
                 </tr>
             </thead>
-            <tbody >
+            <tbody>
                 {% for jugador in jugadores %}
                     {% for mazo in mazos %}
                         {% if mazo.nombre == jugador.mazos[0] %}

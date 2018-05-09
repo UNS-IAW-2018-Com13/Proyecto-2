@@ -38,7 +38,9 @@ window.fbAsyncInit = function () {
 function cargarDatosUsuario(){
     FB.api('/me', function (response) {
         $.post('/', {"nombre": response.name, "id": response.id}, function(req, res){
-            console.log(res.body);
+            var estilo = res.body.estilo;
+            var favoritos = res.body.favoritos;
+            document.getElementById("cuerpo").appendChild(document.createTextNode(estilo +" "+ favoritos));
         });
     });
 }
