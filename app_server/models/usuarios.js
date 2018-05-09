@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const usuarioSchema = new mongoose.Schema({
   userID: {
-    type: Number
+    type: String
   },
   estilo: {
     type: String,
