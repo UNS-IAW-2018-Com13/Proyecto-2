@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const usuarioSchema = new mongoose.Schema({
-  idUser: {
-    type: Number
+  userID: {
+    type: String
   },
   estilo: {
     type: String,
