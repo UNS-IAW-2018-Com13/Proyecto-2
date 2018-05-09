@@ -74,7 +74,7 @@ function testAPI() {
 function guardarUsuario() {
     FB.api('/me', function (response) {
         $.post('/usuario', {'userID': response.id}, function (req, res) {
-            console.log(res);
+            console.log("GUARDAR USUARIO: " + res);
         });
     });
 }
@@ -82,9 +82,8 @@ function guardarUsuario() {
 function obtenerUsuario(){
     FB.api('/me', function (response) {
         $.get('/usuario', {'userID': response.id}, function (req, res) {
-            console.log(response.id);
-            console.log(res);
-            console.log(req);
+            console.log("RES: " + res);
+            console.log("REQ: " + req);
         });
     });
 }
