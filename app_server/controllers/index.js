@@ -6,7 +6,7 @@ const getIndex = function (req, res) {
 };
 
 const postUsuario = function (req, res) {
-    Usuario.update({userID: req.body.userID}, {userID: req.body.userID},
+    Usuario.update({'userID': req.body.userID}, {'userID': req.body.userID},
             {upsert: true, setDefaultsOnInsert: true}, (err, resultado) => {
         if (err) {
             res.status(400).json(err);
@@ -17,7 +17,7 @@ const postUsuario = function (req, res) {
 };
 
 const getUsuario = function (req, res) {
-    Usuario.findOne({"userID": req.body.userID}).exec((err, usr) => {
+    Usuario.findOne({'userID': req.body.userID}).exec((err, usr) => {
         if (err) {
             res.status(404).json(err);
         } else {

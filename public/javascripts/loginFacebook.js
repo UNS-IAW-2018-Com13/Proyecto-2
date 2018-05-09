@@ -14,7 +14,6 @@ function statusChangeCallback(response) {
     } else {
         // The person is not logged into your app or we are unable to tell.
         //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
-        obtenerUsuario();
     }
 }
 
@@ -74,7 +73,7 @@ function testAPI() {
 
 function guardarUsuario() {
     FB.api('/me', function (response) {
-        $.post('/usuario', {"userID": response.id}, function (req, res) {
+        $.post('/usuario', {'userID': response.id}, function (req, res) {
             console.log(res);
         });
     });
@@ -83,6 +82,7 @@ function guardarUsuario() {
 function obtenerUsuario(){
     FB.api('/me', function (response) {
         $.get('/usuario', {'userID': response.id}, function (req, res) {
+            console.log(response.id);
             console.log(res);
             console.log(req);
         });
