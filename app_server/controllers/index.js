@@ -21,7 +21,7 @@ const getUsuario = function (req, res) {
         if (err) {
             res.status(404).json(err);
         } else {
-            res.send({usuario: usr});
+            res.send({usuario: usr, consulta:req.body.userID});
         }
     });
 };
