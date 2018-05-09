@@ -5,8 +5,7 @@ const getIndex = function (req, res) {
     res.render('index');
 };
 
-const postIndex = function (req, res) {
-
+const postUsuario = function (req, res) {
     Usuario.update({idUser: req.body.idUser}, {idUser: req.body.idUser},
             {upsert: true, setDefaultsOnInsert: true}, (err, resultado) => {
         if (err) {
@@ -15,9 +14,18 @@ const postIndex = function (req, res) {
             res.status(201).json(resultado);
         }
     });
+};
 
+const getUsuario = function (req, res) {
+    Usuario.find({idUser: req.body.idUser}).exec((err, usuarios) => {
+        if (err) {
+            res.status(404).json(err);
+        } else {
+            res.send(usuarios);
+        }
+    });
 };
 
 module.exports = {
-    getIndex, postIndex
+    getIndex, postUsuario, getUsuario
 };
