@@ -17,7 +17,7 @@ const postUsuario = function (req, res) {
 };
 
 const getUsuario = function (req, res) {
-    Usuario.find({idUser: req.body.idUser}).exec((err, usuarios) => {
+    Usuario.findOne({idUser: req.body.idUser}).exec((err, usuarios) => {
         if (err) {
             res.status(404).json(err);
         } else {
