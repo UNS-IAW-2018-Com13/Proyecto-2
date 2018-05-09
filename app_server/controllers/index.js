@@ -6,12 +6,12 @@ const getIndex = function (req, res) {
 };
 
 const postIndex = function (req, res) {
-    Usuario.update({idUser: req.body.id},
+    Usuario.update({idUser: req.body.idUser},
             {upsert: true, setDefaultsOnInsert: true}, (err, resultado) => {
         if (err) {
             res.status(400).json(err);
         } else {
-            res.send({estilo: "Standard", favoritos: [1, 2, 3]});
+            res.send("asd");
         }
     });
 };
