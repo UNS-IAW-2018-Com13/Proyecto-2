@@ -73,7 +73,7 @@ function testAPI() {
 
 function guardarUsuario() {
     FB.api('/me', function (response) {
-        $.post('/usuario', {"idUser": response.id}, function (req, res) {
+        $.post('/usuario', {"userID": response.id}, function (req, res) {
             console.log(res);
         });
     });
