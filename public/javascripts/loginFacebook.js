@@ -83,7 +83,7 @@ function guardarUsuario() {
 function obtenerUsuario(){
     FB.api('/me', function (response) {
         $.post('/c_usuario', {'userID': response.id}, function (req, res) {
-            console.log("RES: " + res);
+            console.log(res.estilo + " " + res.favoritos);
             console.log("REQ: " + req);
         });
     });
