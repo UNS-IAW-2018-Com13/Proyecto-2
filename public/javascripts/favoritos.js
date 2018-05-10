@@ -1,12 +1,3 @@
-function controlarLogin(jnom) {
-    FB.getLoginStatus(function (response) {
-        if (response.status === 'connected') {
-            setearFavoritos(jnom);
-        } else{
-            FB.login();
-        }
-    });
-}
 
 function setearFavorito(jnom) {
     var estilo = obtenerEstilo();
