@@ -21,7 +21,7 @@ const getUsuario = function (req, res) {
         if (err) {
             res.status(404).json(err);
         } else {
-            res.send(usr);
+            res.json({estilo: usr.estilo, favoritos: usr.favoritos});
         }
     });
 };
