@@ -10,7 +10,7 @@ function statusChangeCallback(response) {
         // Logged into your app and Facebook.
         //testAPI();
         guardarUsuario();
-        obtenerUsuario();
+        //obtenerUsuario();
         
     } else {
         // The person is not logged into your app or we are unable to tell.
@@ -83,7 +83,6 @@ function guardarUsuario() {
 function obtenerUsuario(){
     FB.api('/me', function (response) {
         $.post('/c_usuario', {'userID': response.id}, function (req, res) {
-            console.log(res.estilo + " " + res.favoritos);
             console.log(res.body.estilo + " " + res.body.favoritos);
             console.log("REQ: " + req);
         });
