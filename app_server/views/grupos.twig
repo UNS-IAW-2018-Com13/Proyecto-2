@@ -50,14 +50,14 @@
                                             {% set claseMazo3 = mazo.clase %}
                                         {% endif %}
                                     {% endfor %}
-                                    <tr data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.favorito }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                        <td>
+                                    <tr>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.nombre }}
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.puntaje }}
                                         </td>
                                         <td onclick="setearFavorito('iconoFav{{ jugador.nombre }}');">
@@ -106,9 +106,6 @@
                                         </td>
                                         <td>
                                             {{ jugador.puntaje }}
-                                        </td>
-                                        <td>
-                                            {{ jugador.favorito }}
                                         </td>
                                     </tr>
                                 {% endif %}
