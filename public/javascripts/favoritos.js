@@ -1,9 +1,43 @@
-function seleccionarFavoritos(jnom) {
-    FB.api('/me', function (response) {
-        if (response === "connected") {
-            document.getElementById("iconoFav" + jnom).src = "/images/icons/fav_std.png";
+function setearFavorito(jnom) {
+    var estilo = obtenerEstilo();
+    var fav = obtenerFavorito(jnom);
+    if (fav === "no") {
+        guardarFavorito(jnom,"si");
+        if (estilo === "Standard") {
+            document.getElementById(jnom).setAttribute("src", "/images/icons/fav_std.png");
         } else {
-            window.alert("Tenes que loguearte con facebook para poder seleccionar favoritos.");
+            document.getElementById(jnom).setAttribute("src", "/images/icons/fav_nax.png");
         }
-    });
+    } else {
+        guardarFavorito(jnom,"no");
+        //if (estilo === "Standard") {
+            document.getElementById(jnom).setAttribute("src", "/images/icons/no_fav_std.png");
+        //} else {
+            //document.getElementById(jnom).setAttribute("src", "/images/icons/no_fav_nax.png");
+        //}
+    }
+}
+
+function obtenerImagenes() {
+    var imgs = document.getElementsByName();
+    var estilo = obtenerEstilo();
+    var fav;
+    for (var img in imgs) {
+        fav = obtenerFavorito(img.id);
+        if (fav === "no") {
+            if (estilo === "Standard") {
+                img.setAttribute("src", "/images/icons/no_fav_std.png");
+            } else {
+                img.setAttribute("src", "/images/icons/no_fav_nax.png");
+            }
+        } else {
+            if (estilo === "Standard") {
+                img.setAttribute("src", "/images/icons/fav_std.png");
+            } else {
+                img.setAttribute("src", "/images/icons/fav_nax.png");
+            }
+        }
+    }
+
+
 }

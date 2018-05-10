@@ -87,16 +87,3 @@ function obtenerUsuario(){
         });
     });
 }
-
-function guardarDatos(idEstilo, favs) {
-    localStorage.setItem("Estilo", idEstilo);
-    localStorage.setItem("Favoritos", favs);
-}
-
-function obtenerEstilo() {
-    return localStorage.getItem("Estilo");
-}
-
-function obtenerFavoritos() {
-    return localStorage.getItem("Favoritos");
-}
