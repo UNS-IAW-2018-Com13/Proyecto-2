@@ -1,17 +1,6 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-    
-    {% block javascript %}
-
-        window.onload = function() {
-            obtenerImagenes();
-            alert('script works');
-    };
-
-    {% endblock %}
-    
-    
     <div class="container">
         <table class="table table-striped" >
             <thead>
@@ -45,7 +34,7 @@
                         <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                             {{ jugador.puntaje }}
                         </td>
-                        <td onclick="setearFavorito('iconoFav{{ jugador.nombre }}');">
+                        <td onclick="controlarLogin('iconoFav{{ jugador.nombre }}');">
                             <img name="iconoFav" id="iconoFav{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
                         </td>
                     </tr>
