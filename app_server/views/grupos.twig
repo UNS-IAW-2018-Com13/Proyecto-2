@@ -36,7 +36,7 @@
                         </tr>
                     </thead>
                     <tbody id="tabla_GrupoA">
-                         {% for integrante in grupos[0].integrantes %}
+                        {% for integrante in grupos[0].integrantes %}
                             {% for jugador in jugadores %}
                                 {% if integrante == jugador.nombre %}
                                     {% for mazo in mazos %}
@@ -50,18 +50,18 @@
                                             {% set claseMazo3 = mazo.clase %}
                                         {% endif %}
                                     {% endfor %}
-                                    <tr data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.favorito }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                        <td>
+                                    <tr>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.nombre }}
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.puntaje }}
                                         </td>
-                                        <td>
-                                            {{ jugador.favorito }}
+                                        <td onclick="setearFavorito('iconoFav{{ jugador.nombre }}');">
+                                            <img name="iconoFav" id="iconoFav{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
                                         </td>
                                     </tr>
                                 {% endif %}
@@ -107,9 +107,6 @@
                                         <td>
                                             {{ jugador.puntaje }}
                                         </td>
-                                        <td>
-                                            {{ jugador.favorito }}
-                                        </td>
                                     </tr>
                                 {% endif %}
                             {% endfor %}
@@ -130,7 +127,7 @@
                         </tr>
                     </thead>
                     <tbody  id="tabla_GrupoC">
-                         {% for integrante in grupos[2].integrantes %}
+                        {% for integrante in grupos[2].integrantes %}
                             {% for jugador in jugadores %}
                                 {% if integrante == jugador.nombre %}
                                     {% for mazo in mazos %}
@@ -177,7 +174,7 @@
                         </tr>
                     </thead>
                     <tbody  id="tabla_GrupoD">
-                         {% for integrante in grupos[3].integrantes %}
+                        {% for integrante in grupos[3].integrantes %}
                             {% for jugador in jugadores %}
                                 {% if integrante == jugador.nombre %}
                                     {% for mazo in mazos %}

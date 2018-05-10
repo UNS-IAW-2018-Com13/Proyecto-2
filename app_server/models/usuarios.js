@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
-const jugadorSchema = new mongoose.Schema({
-  idUser: {
-    type: String,
-    required: true
+const usuarioSchema = new mongoose.Schema({
+  userID: {
+    type: String
   },
   estilo: {
     type: String,
@@ -15,4 +14,4 @@ const jugadorSchema = new mongoose.Schema({
   }
 });
 
-mongoose.model('Usuario', jugadorSchema, 'Usuarios');
+mongoose.model('Usuario', usuarioSchema, 'Usuarios');
