@@ -1,6 +1,17 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
+    
+    {% block javascript %}
+
+        window.onload = function() {
+            obtenerImagenes();
+            alert('script works');
+    };
+
+    {% endblock %}
+    
+    
     <div class="container">
         <table class="table table-striped" >
             <thead>
