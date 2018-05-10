@@ -4,6 +4,4 @@ const estadisticasCtrl = require('../controllers/estadisticas');
 
 router.get('/', estadisticasCtrl.getEstadisticas);
 
-router.post('/estadisticas', estadisticasCtrl.getCartas);
-
 module.exports = router;

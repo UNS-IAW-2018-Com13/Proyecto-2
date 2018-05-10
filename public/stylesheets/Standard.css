@@ -78,3 +78,11 @@ tbody > tr:hover{
     cursor: pointer;
     background-image: url("/images/style-def/barra.jpg");
 }
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}

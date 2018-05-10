@@ -29,10 +29,10 @@
                 <table class="table table-striped" >
                     <thead>
                         <tr>
-                            <th scope="col">Avatar</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Puntaje</th>
-                            <th scope="col">Favorito</th>
+                            <th>Avatar</th>
+                            <th>Nombre</th>
+                            <th>Puntaje</th>
+                            <th>Favorito</th>
                         </tr>
                     </thead>
                     <tbody id="tabla_GrupoA">
@@ -76,10 +76,10 @@
                 <table class="table table-striped" >
                     <thead>
                         <tr>
-                            <th scope="col">Avatar</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Puntaje</th>
-                            <th scope="col">Favorito</th>
+                            <th>Avatar</th>
+                            <th>Nombre</th>
+                            <th>Puntaje</th>
+                            <th>Favorito</th>
                         </tr>
                     </thead>
                     <tbody  id="tabla_GrupoB">
@@ -97,15 +97,18 @@
                                             {% set claseMazo3 = mazo.clase %}
                                         {% endif %}
                                     {% endfor %}
-                                    <tr data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.favorito }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                        <td>
+                                    <tr>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.nombre }}
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.puntaje }}
+                                        </td>
+                                        <td onclick="setearFavorito('iconoFav{{ jugador.nombre }}');">
+                                            <img name="iconoFav" id="iconoFav{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
                                         </td>
                                     </tr>
                                 {% endif %}
@@ -120,10 +123,10 @@
                 <table class="table table-striped" >
                     <thead>
                         <tr>
-                            <th scope="col">Avatar</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Puntaje</th>
-                            <th scope="col">Favorito</th>
+                            <th>Avatar</th>
+                            <th>Nombre</th>
+                            <th>Puntaje</th>
+                            <th>Favorito</th>
                         </tr>
                     </thead>
                     <tbody  id="tabla_GrupoC">
@@ -141,18 +144,18 @@
                                             {% set claseMazo3 = mazo.clase %}
                                         {% endif %}
                                     {% endfor %}
-                                    <tr data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.favorito }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                        <td>
+                                    <tr>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.nombre }}
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.puntaje }}
                                         </td>
-                                        <td>
-                                            {{ jugador.favorito }}
+                                        <td onclick="setearFavorito('iconoFav{{ jugador.nombre }}');">
+                                            <img name="iconoFav" id="iconoFav{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
                                         </td>
                                     </tr>
                                 {% endif %}
@@ -167,10 +170,10 @@
                 <table class="table table-striped" >
                     <thead>
                         <tr>
-                            <th scope="col">Avatar</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Puntaje</th>
-                            <th scope="col">Favorito</th>
+                            <th>Avatar</th>
+                            <th>Nombre</th>
+                            <th>Puntaje</th>
+                            <th>Favorito</th>
                         </tr>
                     </thead>
                     <tbody  id="tabla_GrupoD">
@@ -188,18 +191,18 @@
                                             {% set claseMazo3 = mazo.clase %}
                                         {% endif %}
                                     {% endfor %}
-                                    <tr data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.favorito }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                        <td>
+                                    <tr>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.nombre }}
                                         </td>
-                                        <td>
+                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                                             {{ jugador.puntaje }}
                                         </td>
-                                        <td>
-                                            {{ jugador.favorito }}
+                                        <td onclick="setearFavorito('iconoFav{{ jugador.nombre }}');">
+                                            <img name="iconoFav" id="iconoFav{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
                                         </td>
                                     </tr>
                                 {% endif %}
@@ -238,10 +241,6 @@
                                             <th>Puntaje:</th>
                                             <td id="puntajeJugador">9999</td>
                                         </tr>
-                                        <tr>
-                                            <th>Favorito:</th>
-                                            <td id="favoritoJugador">si/no</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -251,18 +250,15 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <td scope="col">
+                                    <td>
                                         <img src="" alt="MAZO 1" id="imagenMazo1"/>
                                     </td>
-                                    <th scope="col"> </th>
-                                    <td scope="col">
+                                    <td>
                                         <img src="" alt="MAZO 2"id="imagenMazo2"/>
                                     </td>
-                                    <th scope="col"> </th>
-                                    <td scope="col">
+                                    <td>
                                         <img src="" alt="MAZO 3"id="imagenMazo3"/>
                                     </td>
-                                    <th scope="col"> </th>
                                 </tr>
                             </thead>
                         </table>
