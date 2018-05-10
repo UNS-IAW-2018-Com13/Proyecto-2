@@ -73,3 +73,20 @@ button > span{
     color: yellowgreen;
     text-shadow: 0px 0px 10px yellowgreen;
 }
+
+.btn-primary {
+	background-color: transparent;
+	border-color: yellowgreen;
+	color: yellowgreen;
+}
+
+.btn-primary:hover {
+	background-color: sienna;
+	border-color: yellowgreen;
+	color: #060;
+}
+
+tbody > tr:hover{
+    cursor: pointer;
+    background-image: url("/images/style-naxx/barra.jpg");
+}

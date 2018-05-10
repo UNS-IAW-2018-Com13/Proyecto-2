@@ -1,7 +1,6 @@
 body{
     background-image: url("/images/style-def/background.jpg");
-    color: sienna;
-    
+    color: sienna;    
 }
 
 nav{
@@ -15,7 +14,6 @@ nav{
 .navbar-toggler{
     border-color: darkgoldenrod;
 }
-
     
 .nav-link{
     color: darkgoldenrod;
@@ -63,7 +61,6 @@ nav{
 button > span{
     color:darkgoldenrod;
 }
-
 
 .btn-primary {
 	background-color: transparent;
