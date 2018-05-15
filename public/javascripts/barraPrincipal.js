@@ -7,6 +7,11 @@ function cambiarEstilo(idEstilo, idBarra) {
     var titDesp = document.createTextNode(idEstilo);
     tituloDesp.appendChild(titDesp);
     guardarEstilo(idEstilo);
+    
+    var pag = document.getElementById("IDPAG");
+    if(pag !== null){
+        obtenerImagenes();
+    }
 }
 
 function primeraCarga() {

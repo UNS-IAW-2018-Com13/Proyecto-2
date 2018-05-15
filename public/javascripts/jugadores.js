@@ -16,6 +16,12 @@ function completarModalJugadores(nombre, puntaje, I1, I2, I3){
    avatar.setAttribute("width", "150");
    avatar.setAttribute("height", "150");
    
+   var fav = document.getElementById("favoritoJugador");
+   var iconFav = document.getElementById(nombre);
+   fav.setAttribute("src", iconFav.src);
+   fav.setAttribute("width", "30");
+   fav.setAttribute("height", "30");
+   
    var mazo1 = document.getElementById("imagenMazo1");
    mazo1.setAttribute("src","images/icons/"+I1+".png");
    mazo1.setAttribute("width", "50");

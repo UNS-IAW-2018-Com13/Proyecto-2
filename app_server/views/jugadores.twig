@@ -34,8 +34,8 @@
                         <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
                             {{ jugador.puntaje }}
                         </td>
-                        <td onclick="setearFavorito('iconoFav{{ jugador.nombre }}');">
-                            <img name="iconoFav" id="iconoFav{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                        <td onclick="setearFavorito('{{ jugador.nombre }}');">
+                            <img name="iconoFav" id="{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
                         </td>
                     </tr>
                 {% endfor %}
@@ -70,6 +70,12 @@
                                             <th>Puntaje:</th>
                                             <td id="puntajeJugador">9999</td>
                                         </tr>
+                                        <tr>
+                                            <th>Favorito:</th>
+                                            <td>
+                                                <img src="" alt="FAVORITO" id="favoritoJugador"/>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -95,5 +101,7 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="IDPAG">
     </div>
 {% endblock %}

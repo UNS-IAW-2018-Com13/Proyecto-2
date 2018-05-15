@@ -5,37 +5,37 @@ function setearFavorito(jnom) {
     if (fav === "no") {
         guardarFavorito(jnom, "si");
         if (estilo === "Standard") {
-            document.getElementById(jnom).setAttribute("src", "/images/icons/fav_std.png");
+            document.getElementById(jnom).src = "/images/icons/fav_std.png";
         } else {
-            document.getElementById(jnom).setAttribute("src", "/images/icons/fav_nax.png");
+            document.getElementById(jnom).src = "/images/icons/fav_nax.png";
         }
     } else {
         guardarFavorito(jnom, "no");
-        //if (estilo === "Standard") {
-        document.getElementById(jnom).setAttribute("src", "/images/icons/no_fav_std.png");
-        //} else {
-        //document.getElementById(jnom).setAttribute("src", "/images/icons/no_fav_nax.png");
-        //}
+        if (estilo === "Standard") {
+            document.getElementById(jnom).src = "/images/icons/no_fav_std.png";
+        } else {
+            document.getElementById(jnom).src = "/images/icons/no_fav_nax.png";
+        }
     }
 }
 
 function obtenerImagenes() {
-    var imgs = document.getElementsByName();
+    var imgs = document.getElementsByName("iconoFav");
     var estilo = obtenerEstilo();
     var fav;
-    for (var img in imgs) {
-        fav = obtenerFavorito(img.id);
+    for (var i = 0; i < 16; i++) {
+        fav = obtenerFavorito(imgs[i].id);
         if (fav === "no") {
             if (estilo === "Standard") {
-                img.setAttribute("src", "/images/icons/no_fav_std.png");
+                imgs[i].src = "/images/icons/no_fav_std.png";
             } else {
-                img.setAttribute("src", "/images/icons/no_fav_nax.png");
+                imgs[i].src = "/images/icons/no_fav_nax.png";
             }
         } else {
             if (estilo === "Standard") {
-                img.setAttribute("src", "/images/icons/fav_std.png");
+                imgs[i].src = "/images/icons/fav_std.png";
             } else {
-                img.setAttribute("src", "/images/icons/fav_nax.png");
+                imgs[i].src = "/images/icons/fav_nax.png";
             }
         }
     }
