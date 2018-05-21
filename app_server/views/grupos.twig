@@ -36,36 +36,21 @@
                         </tr>
                     </thead>
                     <tbody id="tabla_GrupoA">
-                        {% for integrante in grupos[0].integrantes %}
-                            {% for jugador in jugadores %}
-                                {% if integrante == jugador.nombre %}
-                                    {% for mazo in mazos %}
-                                        {% if mazo.nombre == jugador.mazos[0] %}
-                                            {% set claseMazo1 = mazo.clase %}
-                                        {% endif %}
-                                        {% if mazo.nombre == jugador.mazos[1] %}
-                                            {% set claseMazo2 = mazo.clase %}
-                                        {% endif %}
-                                        {% if mazo.nombre == jugador.mazos[2] %}
-                                            {% set claseMazo3 = mazo.clase %}
-                                        {% endif %}
-                                    {% endfor %}
-                                    <tr>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
-                                        </td>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            {{ jugador.nombre }}
-                                        </td>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            {{ jugador.puntaje }}
-                                        </td>
-                                        <td onclick="setearFavorito('{{ jugador.nombre }}');">
-                                            <img name="iconoFav" id="{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
-                                        </td>
-                                    </tr>
-                                {% endif %}
-                            {% endfor %}
+                        {% for integrante in grupo_1 %}
+                            <tr>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    <img src="/images/portraits/portrait{{ integrante.jugador }}.jpg" width="42" heigth=42" alt="AVATAR">
+                                </td>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    {{ integrante.jugador }}
+                                </td>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    {{ integrante.puntaje }}
+                                </td>
+                                <td onclick="setearFavorito('{{ integrante.jugador }}');">
+                                    <img name="iconoFav" id="{{ integrante.jugador }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                </td>
+                            </tr>
                         {% endfor %}
                     </tbody>
                 </table>
@@ -83,36 +68,21 @@
                         </tr>
                     </thead>
                     <tbody  id="tabla_GrupoB">
-                        {% for integrante in grupos[1].integrantes %}
-                            {% for jugador in jugadores %}
-                                {% if integrante == jugador.nombre %}
-                                    {% for mazo in mazos %}
-                                        {% if mazo.nombre == jugador.mazos[0] %}
-                                            {% set claseMazo1 = mazo.clase %}
-                                        {% endif %}
-                                        {% if mazo.nombre == jugador.mazos[1] %}
-                                            {% set claseMazo2 = mazo.clase %}
-                                        {% endif %}
-                                        {% if mazo.nombre == jugador.mazos[2] %}
-                                            {% set claseMazo3 = mazo.clase %}
-                                        {% endif %}
-                                    {% endfor %}
-                                    <tr>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
-                                        </td>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            {{ jugador.nombre }}
-                                        </td>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            {{ jugador.puntaje }}
-                                        </td>
-                                        <td onclick="setearFavorito('{{ jugador.nombre }}');">
-                                            <img name="iconoFav" id="{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
-                                        </td>
-                                    </tr>
-                                {% endif %}
-                            {% endfor %}
+                        {% for integrante in grupo_2 %}
+                            <tr>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    <img src="/images/portraits/portrait{{ integrante.jugador }}.jpg" width="42" heigth=42" alt="AVATAR">
+                                </td>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    {{ integrante.jugador }}
+                                </td>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    {{ integrante.puntaje }}
+                                </td>
+                                <td onclick="setearFavorito('{{ integrante.jugador }}');">
+                                    <img name="iconoFav" id="{{ integrante.jugador }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                </td>
+                            </tr>
                         {% endfor %}
                     </tbody>
                 </table>
@@ -130,36 +100,21 @@
                         </tr>
                     </thead>
                     <tbody  id="tabla_GrupoC">
-                        {% for integrante in grupos[2].integrantes %}
-                            {% for jugador in jugadores %}
-                                {% if integrante == jugador.nombre %}
-                                    {% for mazo in mazos %}
-                                        {% if mazo.nombre == jugador.mazos[0] %}
-                                            {% set claseMazo1 = mazo.clase %}
-                                        {% endif %}
-                                        {% if mazo.nombre == jugador.mazos[1] %}
-                                            {% set claseMazo2 = mazo.clase %}
-                                        {% endif %}
-                                        {% if mazo.nombre == jugador.mazos[2] %}
-                                            {% set claseMazo3 = mazo.clase %}
-                                        {% endif %}
-                                    {% endfor %}
-                                    <tr>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
-                                        </td>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            {{ jugador.nombre }}
-                                        </td>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            {{ jugador.puntaje }}
-                                        </td>
-                                        <td onclick="setearFavorito('{{ jugador.nombre }}');">
-                                            <img name="iconoFav" id="{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
-                                        </td>
-                                    </tr>
-                                {% endif %}
-                            {% endfor %}
+                        {% for integrante in grupo_3 %}
+                            <tr>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    <img src="/images/portraits/portrait{{ integrante.jugador }}.jpg" width="42" heigth=42" alt="AVATAR">
+                                </td>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    {{ integrante.jugador }}
+                                </td>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    {{ integrante.puntaje }}
+                                </td>
+                                <td onclick="setearFavorito('{{ integrante.jugador }}');">
+                                    <img name="iconoFav" id="{{ integrante.jugador }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                </td>
+                            </tr>
                         {% endfor %}
                     </tbody>
                 </table>
@@ -177,36 +132,21 @@
                         </tr>
                     </thead>
                     <tbody  id="tabla_GrupoD">
-                        {% for integrante in grupos[3].integrantes %}
-                            {% for jugador in jugadores %}
-                                {% if integrante == jugador.nombre %}
-                                    {% for mazo in mazos %}
-                                        {% if mazo.nombre == jugador.mazos[0] %}
-                                            {% set claseMazo1 = mazo.clase %}
-                                        {% endif %}
-                                        {% if mazo.nombre == jugador.mazos[1] %}
-                                            {% set claseMazo2 = mazo.clase %}
-                                        {% endif %}
-                                        {% if mazo.nombre == jugador.mazos[2] %}
-                                            {% set claseMazo3 = mazo.clase %}
-                                        {% endif %}
-                                    {% endfor %}
-                                    <tr>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
-                                        </td>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            {{ jugador.nombre }}
-                                        </td>
-                                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
-                                            {{ jugador.puntaje }}
-                                        </td>
-                                        <td onclick="setearFavorito('{{ jugador.nombre }}');">
-                                            <img name="iconoFav" id="{{ jugador.nombre }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
-                                        </td>
-                                    </tr>
-                                {% endif %}
-                            {% endfor %}
+                        {% for integrante in grupo_4 %}
+                            <tr>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    <img src="/images/portraits/portrait{{ integrante.jugador }}.jpg" width="42" heigth=42" alt="AVATAR">
+                                </td>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    {{ integrante.jugador }}
+                                </td>
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                    {{ integrante.puntaje }}
+                                </td>
+                                <td onclick="setearFavorito('{{ integrante.jugador }}');">
+                                    <img name="iconoFav" id="{{ integrante.jugador }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                </td>
+                            </tr>
                         {% endfor %}
                     </tbody>
                 </table>
