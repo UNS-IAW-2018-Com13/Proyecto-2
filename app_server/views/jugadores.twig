@@ -13,25 +13,14 @@
             </thead>
             <tbody>
                 {% for jugador in jugadores %}
-                    {% for mazo in mazos %}
-                        {% if mazo.nombre == jugador.mazos[0] %}
-                            {% set claseMazo1 = mazo.clase %}
-                        {% endif %}
-                        {% if mazo.nombre == jugador.mazos[1] %}
-                            {% set claseMazo2 = mazo.clase %}
-                        {% endif %}
-                        {% if mazo.nombre == jugador.mazos[2] %}
-                            {% set claseMazo3 = mazo.clase %}
-                        {% endif %}
-                    {% endfor %}
                     <tr>
-                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
+                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.mazo1 }}', '{{ jugador.mazo2 }}', '{{ jugador.mazo3 }}');">
                             <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
                         </td>
-                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
+                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.mazo1 }}', '{{ jugador.mazo2 }}', '{{ jugador.mazo3 }}');">
                             {{ jugador.nombre }}
                         </td>
-                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ claseMazo1 }}', '{{ claseMazo2 }}', '{{ claseMazo3 }}');">
+                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.puntaje }}', '{{ jugador.mazo1 }}', '{{ jugador.mazo2 }}', '{{ jugador.mazo3 }}');">
                             {{ jugador.puntaje }}
                         </td>
                         <td onclick="setearFavorito('{{ jugador.nombre }}');">

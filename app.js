@@ -10,6 +10,7 @@ const indexRouter = require('./app_server/routes/index');
 const jugadoresRouter = require('./app_server/routes/jugadores');
 const gruposRouter = require('./app_server/routes/grupos');
 const partidosRouter = require('./app_server/routes/partidos');
+const buscadorRouter = require('./app_server/routes/buscador');
 const estadisticasRouter = require('./app_server/routes/estadisticas');
 
 const app = express();
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 app.use('/jugadores', jugadoresRouter);
 app.use('/grupos', gruposRouter);
 app.use('/partidos', partidosRouter);
+app.use('/buscador', buscadorRouter);
 app.use('/estadisticas', estadisticasRouter);
 
 // catch 404 and forward to error handler
