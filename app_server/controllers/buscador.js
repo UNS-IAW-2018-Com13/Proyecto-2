@@ -9,6 +9,9 @@ const getCarta = function (req, res) {
     unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards/search/" + req.body.carta + "?collectible=1")
             .header("X-Mashape-Key", "XYu7lgC3UMmshNKUwUmcIw48rD0xp11uZRujsnqGSS9xjgT1gz")
             .end(function (result) {
+                for (var i = result.body.length-1; i>=0; i--)
+                    if (!(result.body[i].hasOwnProperty("cost")))
+                        delete result.body[i];
                 //console.log(result.status, result.headers, result.body);
                 res.json(result.body);
             });

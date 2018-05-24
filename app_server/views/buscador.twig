@@ -1,5 +1,11 @@
 {% extends 'layout.twig' %}
 
+{% block head %}
+    <script src="/javascripts/buscador.js"></script>
+    <style>
+        div > img {cursor: pointer;}
+    </style>
+{% endblock %}
 
 {% block body %}
     <div>
@@ -16,10 +22,8 @@
         </div>
         <br/>
 
-        <div id="resultado">
+        <div id="resultado" align="center">
         </div>
-
-
-
     </div>
+
 {% endblock %}
