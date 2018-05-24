@@ -3,64 +3,63 @@
     <head>
         <title> Torneo de Hearthstone </title>
         <link rel="icon" href="/images/icons/icono.png">
-        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        
 
-        
         <link id="maincss" rel='stylesheet' href='../stylesheets/Standard.css' />
         <script src="/javascripts/barraPrincipal.js"></script>
         <script src="/javascripts/jugadores.js"></script>
         <script src="/javascripts/loginFacebook.js"></script>
         <script src="/javascripts/localStorage.js"></script>
         <script src="/javascripts/favoritos.js"></script>
-        <script src="/javascripts/buscador.js"></script>
 
-    </head>
-    <body onload="primeraCarga();">
-        <nav id="principal" class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="/">
-                <img src="/images/icons/icono.png" width="40" height="40">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuElements" aria-controls="menuElements" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">&#9776;</span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuElements">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="jugadores">Jugadores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="grupos">Grupos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="partidos">Partidos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="buscador">Buscador</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="estadisticas">Estadisticas</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-link">
+    {% block head %}{% endblock %}
+</head>
+<body onload="primeraCarga();">
+    <nav id="principal" class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">
+            <img src="/images/icons/icono.png" width="40" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuElements" aria-controls="menuElements" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">&#9776;</span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuElements">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="jugadores">Jugadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="grupos">Grupos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="partidos">Partidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="buscador">Buscador</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="estadisticas">Estadisticas</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-link">
                     <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true" onlogin="checkLoginState();"></div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Standard</a>
-                        <div class="dropdown-menu" aria-labelledby="dropMenu">
-                            <a class="dropdown-item" id="desplegableI" onclick="cambiarEstilo('Standard', 'dropMenu');">Standard</a>
-                            <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('Naxxramas', 'dropMenu');">Naxxramas</a>
-                        </div>
-                    </li>
-                    </ul>
-            </div>
-        </nav>
-    {% block body %}{% endblock %}
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Standard</a>
+                    <div class="dropdown-menu" aria-labelledby="dropMenu">
+                        <a class="dropdown-item" id="desplegableI" onclick="cambiarEstilo('Standard', 'dropMenu');">Standard</a>
+                        <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('Naxxramas', 'dropMenu');">Naxxramas</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% block body %}{% endblock %}
+
+</body>
 </html>
