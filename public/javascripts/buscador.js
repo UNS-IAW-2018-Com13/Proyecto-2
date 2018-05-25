@@ -45,3 +45,10 @@ function cambiar(id, normal, gold) {
         i.src = normal;
 
 }
+
+
+function pressEnter(criterio, event){
+     var x = event.which || event.keyCode;
+    if(x===13)
+      buscar(criterio);    
+}
