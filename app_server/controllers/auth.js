@@ -6,7 +6,7 @@ passport.use(new FacebookStrategy({
     clientID: "177693619614275",
     clientSecret: "976e401b1f54e23d407c91455defb64a",
     callbackURL: 'https://torneo-hs.herokuapp.com/auth/facebook/callback',
-    profileFields: ['id', 'email', 'name']
+    profileFields: ['id', 'name', 'email']
 }, function (token, refreshToken, profile, done) {
     // asynchronous
     process.nextTick(function () {
@@ -21,7 +21,7 @@ passport.use(new FacebookStrategy({
                 return done(null, user); // user found, return that user
             } else {
                 // if there is no user found with that facebook id, create them
-                var newUser = new User();
+                var newUser = new Usuario();
                 // set all of the facebook information in our user model
                 newUser.id = profile.id; // set the users facebook id                   
                 newUser.token = token; // we will save the token that facebook provides to the user                    
