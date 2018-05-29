@@ -52,10 +52,14 @@ passport.deserializeUser(function (user, done) {
 
 const login_facebook = passport.authenticate('facebook', {scope : ['public_profile', 'email']});
 
-const login_facebook_cb = passport.authenticate('facebook', {successRedirect : '/', failureRedirect : '/'});
+const login_facebook_failure = passport.authenticate('facebook', {failureRedirect : '/'});
+
+const login_facebook_cb = function(req, res) {
+  res.redirect('/');
+};
 
 module.exports = {
-    login_facebook, login_facebook_cb
+    login_facebook, login_facebook_failure, login_facebook_cb
 };
 
 
