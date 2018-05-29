@@ -2,7 +2,6 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var Usuario = require('../models/usuarios');
 
-
 passport.use(new FacebookStrategy({
     clientID: "177693619614275",
     clientSecret: "976e401b1f54e23d407c91455defb64a",
@@ -44,22 +43,24 @@ passport.use(new FacebookStrategy({
 }));
 
 passport.serializeUser(function (user, done) {
-    done(null, user.id);
+    done(null, user);
 });
 
-passport.deserializeUser(function (id, done) {
-    Usuario.findOne(id, function (err, user) {
-        done(err, user);
-    });
+passport.deserializeUser(function (user, done) {
+    done(null, user);
 });
 
-const login_auth = function (req, res) {
-    passport.authenticate('facebook', {scope : ['public_profile', 'email']});
+const login_facebook = passport.authenticate('facebook', {scope : ['public_profile', 'email']});
+
+const login_facebook_cb = passport.authenticate('facebook', {successRedirect : '/', failureRedirect : '/'});
+
+module.exports = {
+    login_facebook, login_facebook_cb
 };
 
-const login_auth_cb = function (req, res) {
-    passport.authenticate('facebook', {successRedirect : '/', failureRedirect : '/'});
-};
+
+
+/*
 
 const logout = function (req, res) {
     req.logout();
@@ -97,7 +98,4 @@ const getUsuario = function (req, res) {
     });
 };
 
-module.exports = {
-    login_auth, login_auth_cb, logout, estaLogueado
-};
-
+ */
