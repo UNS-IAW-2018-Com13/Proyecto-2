@@ -10,7 +10,7 @@ passport.use(new FacebookStrategy({
     profileFields: ['id', 'name', 'email']
 }, function (token, refreshToken, profile, done) {
     process.nextTick(function () {
-        Usuario.findOne({'id': profile.id}, function (err, user) {
+        Usuario.find({'id': profile.id}, function (err, user) {
             if (err){
                 return done(err);
             }
