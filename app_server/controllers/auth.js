@@ -1,5 +1,5 @@
 var passport = require('passport');
-var Usuario = require('../models/Usuarios');
+var Usuario = require('../models/usuarios');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 
