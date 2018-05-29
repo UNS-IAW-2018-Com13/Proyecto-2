@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
+const passport = require('passport');
 require('./app_server/models/db');
 
 const indexRouter = require('./app_server/routes/index');
@@ -11,6 +12,7 @@ const jugadoresRouter = require('./app_server/routes/jugadores');
 const gruposRouter = require('./app_server/routes/grupos');
 const partidosRouter = require('./app_server/routes/partidos');
 const buscadorRouter = require('./app_server/routes/buscador');
+const authRouter = require('./app_server/routes/auth');
 const estadisticasRouter = require('./app_server/routes/estadisticas');
 
 const app = express();
@@ -26,7 +28,17 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(require('express-session')({
+    secret: 'torneo-hs-secret',
+    resave: true,
+    saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', indexRouter);
+app.use('/', authRouter);
 app.use('/jugadores', jugadoresRouter);
 app.use('/grupos', gruposRouter);
 app.use('/partidos', partidosRouter);

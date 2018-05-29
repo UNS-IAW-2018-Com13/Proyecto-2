@@ -3,23 +3,21 @@
     <head>
         <title> Torneo de Hearthstone </title>
         <link rel="icon" href="/images/icons/icono.png">
-        
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        
 
-        
+
+
         <link id="maincss" rel='stylesheet' href='../stylesheets/Standard.css' />
         <script src="/javascripts/barraPrincipal.js"></script>
         <script src="/javascripts/jugadores.js"></script>
-        <script src="/javascripts/loginFacebook.js"></script>
         <script src="/javascripts/localStorage.js"></script>
         <script src="/javascripts/favoritos.js"></script>
-        
-    <script src="/javascripts/buscador.js"></script>
+        <script src="/javascripts/buscador.js"></script>
 
     </head>
     <body onload="primeraCarga();">
@@ -49,9 +47,6 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-link">
-                    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true" onlogin="checkLoginState();"></div>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Standard</a>
@@ -60,7 +55,7 @@
                             <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('Naxxramas', 'dropMenu');">Naxxramas</a>
                         </div>
                     </li>
-                    </ul>
+                </ul>
             </div>
         </nav>
     {% block body %}{% endblock %}
