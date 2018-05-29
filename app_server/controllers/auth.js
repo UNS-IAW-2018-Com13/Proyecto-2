@@ -1,6 +1,7 @@
 var passport = require('passport');
-var FacebookStrategy = require('passport-facebook').Strategy;
 var Usuario = require('../models/usuarios');
+var FacebookStrategy = require('passport-facebook').Strategy;
+
 
 passport.use(new FacebookStrategy({
     clientID: "177693619614275",
@@ -8,51 +9,43 @@ passport.use(new FacebookStrategy({
     callbackURL: 'https://torneo-hs.herokuapp.com/auth/facebook/callback',
     profileFields: ['id', 'name', 'email']
 }, function (token, refreshToken, profile, done) {
-    // asynchronous
     process.nextTick(function () {
-        // find the user in the database based on their facebook id
         Usuario.findOne({'id': profile.id}, function (err, user) {
-            // if there is an error, stop everything and return that
-            // ie an error connecting to the database
-            if (err)
+            if (err){
                 return done(err);
-            // if the user is found, then log them in
+            }
             if (user) {
-                return done(null, user); // user found, return that user
+                return done(null, user);
             } else {
-                // if there is no user found with that facebook id, create them
                 var newUser = new Usuario();
-                // set all of the facebook information in our user model
-                newUser.id = profile.id; // set the users facebook id                   
-                newUser.token = token; // we will save the token that facebook provides to the user                    
-                newUser.nombre = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
-                newUser.mail = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
+                newUser.id = profile.id;                  
+                newUser.token = token;                    
+                newUser.nombre = profile.name.givenName + ' ' + profile.name.familyName;
+                newUser.mail = profile.emails[0].value;
                 newUser.estilo = 'Standard';
                 newUser.favoritos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-                // save our user to the database
                 newUser.save(function (err) {
-                    if (err)
+                    if (err){
                         throw err;
-                    // if successful, return the new user
+                    }
                     return done(null, newUser);
                 });
             }
-
         });
     });
 }));
 
-passport.serializeUser(function (user, done) {
-    done(null, user);
+passport.serializeUser(function(user, done) {
+  done(null, user);
 });
 
-passport.deserializeUser(function (user, done) {
-    done(null, user);
+passport.deserializeUser(function(user, done) {
+  done(null, user);
 });
 
-const login_facebook = passport.authenticate('facebook', {scope : ['public_profile', 'email']});
+const login_facebook = passport.authenticate('facebook', {scope: ['email']});
 
-const login_facebook_failure = passport.authenticate('facebook', {failureRedirect : '/'});
+const login_facebook_failure = passport.authenticate('facebook', {failureRedirect: '/'});
 
 const login_facebook_cb = function(req, res) {
   res.redirect('/');
