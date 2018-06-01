@@ -1,21 +1,24 @@
 
 function guardarEstilo(idEstilo) {
-    $.post('/auth/guardar_estilo', {'estilo': idEstilo}, function (req, res) {
+    /*
+    $.post('/estilos/guardar_estilo', {'estilo': idEstilo}, function (req, res) {
         localStorage.setItem("Estilo", idEstilo);
     });
+    */
+    localStorage.setItem("Estilo", idEstilo);
 }
 
 function obtenerEstilo() {
-    $.get('/auth/cargar_estilo', function (res, req) {
-        console.log(res.estilo);
-        /*
-        var est = localStorage.getItem("Estilo");
-        if (est === null) {
-            est = "Standard";
-        }
-        */
-        return res.estilo;
+    /*
+    $.get('/estilos/cargar_estilo', function (res, req) {
+        
     });
+    */
+    var est = localStorage.getItem("Estilo");
+    if (est === null) {
+        est = "Standard";
+    }
+    return est;
 }
 
 function obtenerFavorito(jnom) {

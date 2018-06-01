@@ -44,11 +44,7 @@ passport.deserializeUser(function(user, done) {
 
 const login_facebook = passport.authenticate('facebook', {scope: ['email']});
 
-const login_facebook_failure = passport.authenticate('facebook', {failureRedirect: '/'});
-
-const login_facebook_cb = function(req, res) {
-  res.redirect('/');
-};
+const login_facebook_cb = passport.authenticate('facebook', {successRedirect : '/logueado', failureRedirect : '/'});
 
 const logout = function (req, res) {
     req.logout();
@@ -57,54 +53,19 @@ const logout = function (req, res) {
 
 function estaLogueado(req, res, next) {
     if (req.isAuthenticated()) {
+        console.log("Usuario logueado.");
         return next();
     } else {
-        res.json({msj:"no_logueado"});
+        console.log("Usuario no logueado.");
+        res.redirect('/');
     }
 }
 
-const guardarEstilo = function (req, res) {
-    Usuario.update({'id': req.user.id}, {'estilo': req.body.estilo}, (err, resultado) => {
-        if (err) {
-            res.status(400).json(err);
-        } else {
-            res.status(201).json(resultado);
-        }
-    });
-};
-
-const cargarEstilo = function (req, res) {
-    Usuario.findOne({'id': req.user.id}, (err, resultado) => {
-        if (err) {
-            res.status(400).json(err);
-        } else {
-            res.json({'estilo': resultado.estilo});
-        }
-    });
+const getIndexLogueado = function (req, res) {
+    console.log("Index con usuario: " + req.user);
+    res.render('index',{usuario: req.user});
 };
 
 module.exports = {
-    login_facebook, login_facebook_failure, login_facebook_cb, logout, estaLogueado, guardarEstilo, cargarEstilo
+    login_facebook, login_facebook_cb, logout, estaLogueado, getIndexLogueado
 };
-
-
-
-/*
-
-
-
-
-
-
-
-const getUsuario = function (req, res) {
-    Usuario.findOne({'userID': req.body.userID}).exec((err, usr) => {
-        if (err) {
-            res.status(404).json(err);
-        } else {
-            res.json({estilo: usr.estilo, favoritos: usr.favoritos});
-        }
-    });
-};
-
- */
