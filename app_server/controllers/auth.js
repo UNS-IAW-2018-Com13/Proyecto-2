@@ -2,7 +2,6 @@ var passport = require('passport');
 var Usuario = require('../models/usuarios');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
-
 passport.use(new FacebookStrategy({
     clientID: "177693619614275",
     clientSecret: "976e401b1f54e23d407c91455defb64a",
@@ -51,32 +50,21 @@ const login_facebook_cb = function(req, res) {
   res.redirect('/');
 };
 
-module.exports = {
-    login_facebook, login_facebook_failure, login_facebook_cb
-};
-
-
-
-/*
-
 const logout = function (req, res) {
     req.logout();
     res.redirect('/');
 };
 
 function estaLogueado(req, res, next) {
-    // if user is authenticated in the session, carry on 
     if (req.isAuthenticated()) {
         return next();
     } else {
-        // if they aren't redirect them to the home page
-        res.redirect('/');
+        res.json({msj:"no_logueado"});
     }
 }
 
-const guardarUsuario = function (req, res) {
-    Usuario.update({'userID': req.body.userID}, {'userID': req.body.userID},
-            {upsert: true, setDefaultsOnInsert: true}, (err, resultado) => {
+const guardarEstilo = function (req, res) {
+    Usuario.update({'id': req.user.id}, {'estilo': req.body.estilo}, (err, resultado) => {
         if (err) {
             res.status(400).json(err);
         } else {
@@ -84,6 +72,30 @@ const guardarUsuario = function (req, res) {
         }
     });
 };
+
+const cargarEstilo = function (req, res) {
+    Usuario.findOne({'id': req.user.id}, (err, resultado) => {
+        if (err) {
+            res.status(400).json(err);
+        } else {
+            res.json({'estilo': resultado.estilo});
+        }
+    });
+};
+
+module.exports = {
+    login_facebook, login_facebook_failure, login_facebook_cb, logout, estaLogueado, guardarEstilo
+};
+
+
+
+/*
+
+
+
+
+
+
 
 const getUsuario = function (req, res) {
     Usuario.findOne({'userID': req.body.userID}).exec((err, usr) => {
