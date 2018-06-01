@@ -84,7 +84,7 @@ const cargarEstilo = function (req, res) {
 };
 
 module.exports = {
-    login_facebook, login_facebook_failure, login_facebook_cb, logout, estaLogueado, guardarEstilo
+    login_facebook, login_facebook_failure, login_facebook_cb, logout, estaLogueado, guardarEstilo, cargarEstilo
 };
 
 
