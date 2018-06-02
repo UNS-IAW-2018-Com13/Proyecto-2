@@ -20,7 +20,7 @@
         <script src="/javascripts/buscador.js"></script>
 
     </head>
-    <body onload="primeraCarga({{usuario}});">
+    <body onload="primeraCarga({% usuario %});">
         <nav id="principal" class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="/">
                 <img src="/images/icons/icono.png" width="40" height="40">
@@ -50,8 +50,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Standard</a>
                         <div class="dropdown-menu" aria-labelledby="dropMenu">
-                            <a class="dropdown-item" id="desplegableI" onclick="cambiarEstilo('{{usuario}}', 'Standard', 'dropMenu');">Standard</a>
-                            <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('{{usuario}}', 'Naxxramas', 'dropMenu');">Naxxramas</a>
+                            <a class="dropdown-item" id="desplegableI" onclick="cambiarEstilo('{% usuario %}', 'Standard', 'dropMenu');">Standard</a>
+                            <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('{% usuario %}', 'Naxxramas', 'dropMenu');">Naxxramas</a>
                         </div>
                     </li>
                 </ul>
