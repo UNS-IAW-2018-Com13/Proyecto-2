@@ -62,7 +62,7 @@ function estaLogueado(req, res, next) {
 }
 
 const getIndexLogueado = function (req, res) {
-    console.log("Index con usuario: " + req.user);
+    console.log("Index con usuario: " + req.user.estilo);
     res.render('index',{usuario: req.user});
 };
 
