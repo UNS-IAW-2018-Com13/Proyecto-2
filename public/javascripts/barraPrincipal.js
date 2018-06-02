@@ -15,5 +15,6 @@ function primeraCarga(usuario) {
         obtenerImagenes();
     }
     var estilo = obtenerEstilo(usuario);
+    console.log(estilo);
     cambiarEstilo(usuario, estilo, "dropMenu");   
 }
