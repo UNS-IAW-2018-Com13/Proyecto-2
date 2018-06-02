@@ -14,7 +14,7 @@ function primeraCarga(estilo) {
     if(pag !== null){
         obtenerImagenes();
     }
-    if(estilo === null){
+    if(estilo === ""){
         var est = obtenerEstilo();
         console.log(est);
         cambiarEstilo(est, "dropMenu");
