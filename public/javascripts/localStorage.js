@@ -1,11 +1,11 @@
 
 function guardarEstilo(idEstilo) {
-    /*
+    
     $.post('/estilos/guardar_estilo', {'estilo': idEstilo}, function (req, res) {
         localStorage.setItem("Estilo", idEstilo);
     });
-    */
-    localStorage.setItem("Estilo", idEstilo);
+    
+    //localStorage.setItem("Estilo", idEstilo);
 }
 
 function obtenerEstilo() {
