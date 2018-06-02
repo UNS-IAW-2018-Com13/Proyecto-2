@@ -7,7 +7,7 @@ const getIndex = function (req, res) {
             if (err) {
                 res.status(400).json(err);
             } else {
-                res.render('index',{usuario: req.user});
+                res.render('index',{usuario: resultado});
             }
         });
     }else{
