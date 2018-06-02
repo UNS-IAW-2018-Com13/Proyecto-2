@@ -44,23 +44,13 @@ passport.deserializeUser(function(user, done) {
 
 const login_facebook = passport.authenticate('facebook', {scope: ['email']});
 
-const login_facebook_cb = passport.authenticate('facebook', {successRedirect : '/logueado', failureRedirect : '/'});
+const login_facebook_cb = passport.authenticate('facebook', {successRedirect : '/', failureRedirect : '/'});
 
 const logout = function (req, res) {
     req.logout();
     res.redirect('/');
 };
 
-function estaLogueado(req, res, next) {
-    if (req.isAuthenticated()) {
-        console.log("Usuario logueado.");
-        return next();
-    } else {
-        console.log("Usuario no logueado.");
-        res.redirect('/');
-    }
-}
-
 module.exports = {
-    login_facebook, login_facebook_cb, logout, estaLogueado
+    login_facebook, login_facebook_cb, logout
 };

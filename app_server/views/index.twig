@@ -30,7 +30,10 @@
         </div>
     </div>
     <div>
-        <a href="/auth/facebook" class="btn btn-primary">Facebook</a>
-        {{usuario.estilo}}
+        {% if usuario %}
+            <a href="/auth/logout" class="btn btn-primary">{{usuario.nombre}}</a>
+        {% else %}
+            <a href="/auth/facebook" class="btn btn-primary">Facebook</a>
+        {% endif %}
     </div>
 {% endblock %}

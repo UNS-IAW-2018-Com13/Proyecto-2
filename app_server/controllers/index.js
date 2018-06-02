@@ -1,11 +1,11 @@
 const getIndex = function (req, res) {
-    res.render('index');
-};
-
-const getIndexLogueado = function (req, res) {
-    res.render('index',{usuario: req.user});
+    if(req.user){
+       res.render('index',{usuario: req.user}); 
+    }else{
+        res.render('index');
+    }
 };
 
 module.exports = {
-    getIndex, getIndexLogueado
+    getIndex
 };
