@@ -13,24 +13,26 @@ function guardarEstilo(usuario, idEstilo) {
 function obtenerEstilo(usuario) {
     var estilo;
     if (usuario) {
-        estilo = usuario.estilo;
+        $.get('/estilos/cargar_estilo', function (req, res) {
+            return res.estilo;
+        });
     } else {
         estilo = localStorage.getItem("Estilo");
         if (estilo === null) {
-            est = "Standard";
+            estilo = "Standard";
         }
     }
     return estilo;
 }
 
 function obtenerFavorito(jnom) {
-    var est = localStorage.getItem(jnom);
-    if (est === null) {
-        est = "no";
+    var fav = localStorage.getItem(jnom);
+    if (fav === null) {
+        fav = "no";
     }
-    return est;
+    return fav;
 }
 
-function guardarFavorito(jnom, est) {
-    localStorage.setItem(jnom, est);
+function guardarFavorito(jnom, fav) {
+    localStorage.setItem(jnom, fav);
 }
