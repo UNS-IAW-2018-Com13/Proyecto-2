@@ -1,20 +1,22 @@
 
-function cambiarEstilo(usuario, idEstilo, idBarra) {
+function cambiarEstilo(idEstilo, idBarra) {
     var tituloDesp = document.getElementById(idBarra);
     tituloDesp.removeChild(tituloDesp.lastChild);
     var linkEstilo = document.getElementById("maincss");
     linkEstilo.href = "/stylesheets/" + idEstilo + ".css";
     var titDesp = document.createTextNode(idEstilo);
     tituloDesp.appendChild(titDesp);
-    guardarEstilo(usuario, idEstilo);
+    guardarEstilo(idEstilo);
 }
 
-function primeraCarga(usuario) {
+function primeraCarga(estilo) {
     var pag = document.getElementById("IDPAG");
     if(pag !== null){
         obtenerImagenes();
     }
-    var estilo = obtenerEstilo(usuario);
-    console.log(estilo);
-    cambiarEstilo(usuario, estilo, "dropMenu");   
+    if(estilo === null){
+        var est = obtenerEstilo();
+        console.log(est);
+        cambiarEstilo(est, "dropMenu");
+    }  
 }

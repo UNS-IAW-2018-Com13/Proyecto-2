@@ -11,8 +11,12 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
 
-
-        <link id="maincss" rel='stylesheet' href='../stylesheets/Standard.css' />
+        {% if usuario %}
+            <link id="maincss" rel='stylesheet' href='../stylesheets/{{usuario.estilo}}.css' />
+        {% else %}
+            <link id="maincss" rel='stylesheet' href='../stylesheets/Standard.css' />
+        {% endif %}
+        
         <script src="/javascripts/barraPrincipal.js"></script>
         <script src="/javascripts/jugadores.js"></script>
         <script src="/javascripts/localStorage.js"></script>
@@ -20,7 +24,7 @@
         <script src="/javascripts/buscador.js"></script>
 
     </head>
-    <body onload="primeraCarga({% usuario %});">
+    <body onload="primeraCarga({{usuario.estilo}});">
         <nav id="principal" class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="/">
                 <img src="/images/icons/icono.png" width="40" height="40">
@@ -50,8 +54,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Standard</a>
                         <div class="dropdown-menu" aria-labelledby="dropMenu">
-                            <a class="dropdown-item" id="desplegableI" onclick="cambiarEstilo('{% usuario %}', 'Standard', 'dropMenu');">Standard</a>
-                            <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('{% usuario %}', 'Naxxramas', 'dropMenu');">Naxxramas</a>
+                            <a class="dropdown-item" id="desplegableI" onclick="cambiarEstilo('Standard', 'dropMenu');">Standard</a>
+                            <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('Naxxramas', 'dropMenu');">Naxxramas</a>
                         </div>
                     </li>
                 </ul>

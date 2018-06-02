@@ -1,26 +1,15 @@
 
-function guardarEstilo(usuario, idEstilo) {
-    if (usuario) {
-        $.post('/estilos/guardar_estilo', {'estilo': idEstilo}, function (req, res) {
-            localStorage.setItem("Estilo", idEstilo);
-        });
-    }else {
+function guardarEstilo(idEstilo) {
+    $.post('/estilos/guardar_estilo', {'estilo': idEstilo}, function (req, res) {
+        console.log("guardar estilo: " + res);
         localStorage.setItem("Estilo", idEstilo);
-    }
-
+    });
 }
 
-function obtenerEstilo(usuario) {
-    var estilo;
-    if (usuario) {
-        $.get('/estilos/cargar_estilo', function (req, res) {
-            return res.estilo;
-        });
-    } else {
-        estilo = localStorage.getItem("Estilo");
-        if (estilo === null) {
-            estilo = "Standard";
-        }
+function obtenerEstilo() {
+    var estilo = localStorage.getItem("Estilo");
+    if (estilo === null) {
+        estilo = "Standard";
     }
     return estilo;
 }
