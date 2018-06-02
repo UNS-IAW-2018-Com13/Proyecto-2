@@ -62,5 +62,5 @@ function estaLogueado(req, res, next) {
 }
 
 module.exports = {
-    login_facebook, login_facebook_cb, logout, estaLogueado, getIndexLogueado
+    login_facebook, login_facebook_cb, logout, estaLogueado
 };
