@@ -3,8 +3,7 @@ const getIndex = function (req, res) {
 };
 
 const getIndexLogueado = function (req, res) {
-    console.log("Index con usuario: " + req.user.estilo);
-    res.redirect('index',{usuario: req.user});
+    res.render('index',{usuario: req.user});
 };
 
 module.exports = {
