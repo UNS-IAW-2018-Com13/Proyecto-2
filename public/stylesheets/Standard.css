@@ -1,6 +1,7 @@
 body{
     background-image: url("/images/style-def/background.jpg");
-    color: sienna;    
+    color: sienna;
+    padding-top: 80px;
 }
 
 nav{
