@@ -1,6 +1,25 @@
+const mongoose = require('mongoose');
+const Jugador = mongoose.model('Jugador');
+
+const Usuario = mongoose.model('Usuario');
 
 const getEstadisticas = function (req, res) {
-    res.render('estadisticas');
+    Jugador.find().exec((err, jugadores) => {
+        if (err) {
+            res.status(404).json(err);
+        } else {
+            player = new Array();
+            votes = new Array();
+            for (var i = 0; i < jugadores.length; i++) {
+                player[i] = jugadores[i].nombre;
+                votes[i] = jugadores[i].favorito;
+            }
+            favoritos =new Object();
+            favoritos.jugadores= player;
+            favoritos.votos= votes;
+            res.render('estadisticas',{favoritos});
+        }
+    });
 };
 
 module.exports = {
