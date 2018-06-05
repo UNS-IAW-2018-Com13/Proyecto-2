@@ -38,17 +38,33 @@
                     <tbody id="tabla_GrupoA">
                         {% for integrante in grupo_1 %}
                             <tr>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     <img src="/images/portraits/portrait{{ integrante.jugador }}.jpg" width="42" heigth=42" alt="AVATAR">
                                 </td>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     {{ integrante.jugador }}
                                 </td>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     {{ integrante.puntaje }}
                                 </td>
-                                <td onclick="setearFavorito('{{ integrante.jugador }}');">
-                                    <img name="iconoFav" id="{{ integrante.jugador }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                <td onclick="setearFavorito('{{ integrante.favorito }}');">
+                                    {% if usuario %}
+                                        {% if usuario.estilo == "Naxxramas" %}
+                                            {% if usuario.favoritos[integrante.favorito] == 1 %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/fav_nax.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% else %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_nax.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% endif %}
+                                        {% else %}
+                                            {% if usuario.favoritos[integrante.favorito] == 1 %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% else %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -70,17 +86,33 @@
                     <tbody  id="tabla_GrupoB">
                         {% for integrante in grupo_2 %}
                             <tr>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     <img src="/images/portraits/portrait{{ integrante.jugador }}.jpg" width="42" heigth=42" alt="AVATAR">
                                 </td>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     {{ integrante.jugador }}
                                 </td>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     {{ integrante.puntaje }}
                                 </td>
-                                <td onclick="setearFavorito('{{ integrante.jugador }}');">
-                                    <img name="iconoFav" id="{{ integrante.jugador }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                <td onclick="setearFavorito('{{ integrante.favorito }}');">
+                                    {% if usuario %}
+                                        {% if usuario.estilo == "Naxxramas" %}
+                                            {% if usuario.favoritos[integrante.favorito] == 1 %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/fav_nax.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% else %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_nax.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% endif %}
+                                        {% else %}
+                                            {% if usuario.favoritos[integrante.favorito] == 1 %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% else %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -102,17 +134,33 @@
                     <tbody  id="tabla_GrupoC">
                         {% for integrante in grupo_3 %}
                             <tr>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     <img src="/images/portraits/portrait{{ integrante.jugador }}.jpg" width="42" heigth=42" alt="AVATAR">
                                 </td>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     {{ integrante.jugador }}
                                 </td>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     {{ integrante.puntaje }}
                                 </td>
-                                <td onclick="setearFavorito('{{ integrante.jugador }}');">
-                                    <img name="iconoFav" id="{{ integrante.jugador }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                <td onclick="setearFavorito('{{ integrante.favorito }}');">
+                                    {% if usuario %}
+                                        {% if usuario.estilo == "Naxxramas" %}
+                                            {% if usuario.favoritos[integrante.favorito] == 1 %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/fav_nax.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% else %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_nax.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% endif %}
+                                        {% else %}
+                                            {% if usuario.favoritos[integrante.favorito] == 1 %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% else %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -134,17 +182,33 @@
                     <tbody  id="tabla_GrupoD">
                         {% for integrante in grupo_4 %}
                             <tr>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     <img src="/images/portraits/portrait{{ integrante.jugador }}.jpg" width="42" heigth=42" alt="AVATAR">
                                 </td>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     {{ integrante.jugador }}
                                 </td>
-                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
+                                <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ integrante.jugador }}', '{{ integrante.favorito }}', '{{ integrante.puntaje }}', '{{ integrante.mazo1 }}', '{{ integrante.mazo2 }}', '{{ integrante.mazo3 }}');">
                                     {{ integrante.puntaje }}
                                 </td>
-                                <td onclick="setearFavorito('{{ integrante.jugador }}');">
-                                    <img name="iconoFav" id="{{ integrante.jugador }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                <td onclick="setearFavorito('{{ integrante.favorito }}');">
+                                    {% if usuario %}
+                                        {% if usuario.estilo == "Naxxramas" %}
+                                            {% if usuario.favoritos[integrante.favorito] == 1 %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/fav_nax.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% else %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_nax.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% endif %}
+                                        {% else %}
+                                            {% if usuario.favoritos[integrante.favorito] == 1 %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% else %}
+                                                <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        <img name="iconoFav" id="{{ integrante.favorito }}" src="/images/icons/no_fav_std.png" width="42" heigth=42" alt="FAVORITO">
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}

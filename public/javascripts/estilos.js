@@ -1,15 +1,18 @@
-function cargar(estilo) {
-    var pag = document.getElementById("IDPAG");
-    if(pag !== null){
-        obtenerImagenes();
-    }
-    if(estilo === ""){
+function cargar(estilo, favoritos) {
+    if (estilo === "") {
         var est = obtenerEstilo();
-        console.log(est);
-        if(est !== "Standard"){
+        if (est !== "Standard") {
             cambiarEstilo(est, "dropMenu");
-        } 
-    }  
+        } else {
+            var pag = document.getElementById("IDPAG");
+            if (pag !== null) {
+                obtenerImagenes(est);
+            }
+        }
+    } else {
+        localStorage.setItem("Estilo", estilo);
+        localStorage.setItem("Favoritos", JSON.stringify(favoritos));
+    }
 }
 
 function cambiarEstilo(idEstilo, idBarra) {
@@ -19,12 +22,16 @@ function cambiarEstilo(idEstilo, idBarra) {
     linkEstilo.href = "/stylesheets/" + idEstilo + ".css";
     var titDesp = document.createTextNode(idEstilo);
     tituloDesp.appendChild(titDesp);
+    var pag = document.getElementById("IDPAG");
+    if (pag !== null) {
+        obtenerImagenes(idEstilo);
+    }
     guardarEstilo(idEstilo);
+
 }
 
 function guardarEstilo(idEstilo) {
     $.post('/estilos/guardar_estilo', {'estilo': idEstilo}, function (req, res) {
-        console.log("guardar estilo: " + res);
         localStorage.setItem("Estilo", idEstilo);
     });
 }

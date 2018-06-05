@@ -13,27 +13,20 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <a href="jugadores"><img src="/images/buttons/jugadores.png" class="img-fluid" alt="JUGADORES"/></a>
+                <a href="../jugadores"><img src="/images/buttons/jugadores.png" class="img-fluid" alt="JUGADORES"/></a>
             </div>
             <div class="col">
-                <a href="grupos"><img src="../images/buttons/grupos.png" class="img-fluid" alt="GRUPOS"/></a>
+                <a href="../grupos"><img src="../images/buttons/grupos.png" class="img-fluid" alt="GRUPOS"/></a>
             </div>
             <div class="col">
-                <a href="partidos"><img src="../images/buttons/partidos.png" class="img-fluid" alt="PARTIDOS"/></a>
+                <a href="../partidos"><img src="../images/buttons/partidos.png" class="img-fluid" alt="PARTIDOS"/></a>
             </div>
             <div class="col">
-                <a href="buscador"><img src="../images/buttons/buscador.png" class="img-fluid" alt="BUSCADOR"/></a>
+                <a href="../buscador"><img src="../images/buttons/buscador.png" class="img-fluid" alt="BUSCADOR"/></a>
             </div>
             <div class="col">
-                <a href="estadisticas"><img src="../images/buttons/estadisticas.png" class="img-fluid" alt="ESTADISTICAS"/></a>
+                <a href="../estadisticas"><img src="../images/buttons/estadisticas.png" class="img-fluid" alt="ESTADISTICAS"/></a>
             </div>
         </div>
-    </div>
-    <div>
-        {% if usuario %}
-            <a href="/auth/logout" class="btn btn-primary">{{usuario.nombre}}</a>
-        {% else %}
-            <a href="/auth/facebook" class="btn btn-primary">Facebook</a>
-        {% endif %}
     </div>
 {% endblock %}

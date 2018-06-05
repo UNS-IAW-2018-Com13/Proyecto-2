@@ -14,6 +14,7 @@ const partidosRouter = require('./app_server/routes/partidos');
 const buscadorRouter = require('./app_server/routes/buscador');
 const authRouter = require('./app_server/routes/auth');
 const estilosRouter = require('./app_server/routes/estilos');
+const favoritosRouter = require('./app_server/routes/favoritos');
 const estadisticasRouter = require('./app_server/routes/estadisticas');
 
 const app = express();
@@ -41,6 +42,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/estilos', estilosRouter);
+app.use('/favoritos', favoritosRouter);
 app.use('/jugadores', jugadoresRouter);
 app.use('/grupos', gruposRouter);
 app.use('/partidos', partidosRouter);
