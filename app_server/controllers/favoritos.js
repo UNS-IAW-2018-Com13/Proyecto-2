@@ -35,14 +35,6 @@ const guardarFavoritos = function (req, res) {
 
 };
 
-function setearFavoritos() {
-    var resultado = new Array(colJugadores.length);
-    for (var i = 0; i < colJugadores.length; i++) {
-        resultado[i] = generarEstructuraJugador(colJugadores[i]);
-    }
-    return resultado;
-}
-
 module.exports = {
     guardarFavoritos
 };
