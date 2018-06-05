@@ -21,12 +21,14 @@ function buscar(criterio) {
                 foto.setAttribute("alt", res[i].name);
 
                 foto.setAttribute("class", "img-fluid");
-
+/*
                 foto.setAttribute("onclick",
                         "cambiar('imgN" + i +
                         "','" + res[i].img +
                         "','" + res[i].imgGold + "')");
-
+*/
+                foto.setAttribute("onclick",
+                        "verCarta('"+ res[i].name +"')");                        
                 foto.setAttribute("src", res[i].img);
                 foto.setAttribute("src", res[i].img);
 
@@ -50,4 +52,9 @@ function pressEnter(criterio, event) {
     var x = event.which || event.keyCode;
     if (x === 13)
         buscar(criterio);
+}
+
+
+function verCarta(nombre){
+    $.get('/buscador/getStats', {'carta': nombre.replace(" ", "+")});
 }
