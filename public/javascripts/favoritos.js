@@ -58,7 +58,7 @@ function obtenerTodosFavoritos() {
 function guardarFavorito(idFav, fav) {
     var favoritos = obtenerTodosFavoritos();
     favoritos[idFav] = fav;
-    $.post('/favoritos/guardar_favoritos', {'favoritos': JSON.stringify(favoritos), 'idFavorito': idFav, 'fav': fav}, function (res, req) {
+    $.post('/favoritos/guardar_favoritos', {'idFavorito': idFav, 'fav': fav}, function (res, req) {
         localStorage.setItem("Favoritos", JSON.stringify(favoritos));
     });
 }

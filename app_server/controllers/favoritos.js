@@ -4,7 +4,7 @@ const Jugador = mongoose.model('Jugador');
 
 const guardarFavoritos = function (req, res) {
     if (req.user) {
-        Usuario.update({'id': req.user.id}, {'favoritos': req.body.favoritos}, (err, usr_up) => {
+        Usuario.findOne({'id': req.user.id}, (err, usr) => {
             if (err) {
                 res.status(400).json(err);
             } else {
@@ -22,7 +22,15 @@ const guardarFavoritos = function (req, res) {
                             if (err) {
                                 res.status(400).json(err);
                             } else {
-                                res.status(201);
+                                var favs = usr.favoritos;
+                                favs[req.body.idFavorito] = req.body.fav;
+                                Usuario.update({'id': jgdr.id}, {'favoritos': favs}, (err, usr_up) => {
+                                    if (err) {
+                                        res.status(400).json(err);
+                                    } else {
+                                        res.status(201);
+                                    }
+                                });
                             }
                         });
                     }
