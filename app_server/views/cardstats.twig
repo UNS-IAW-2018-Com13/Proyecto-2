@@ -9,10 +9,26 @@
 
 {% block body %}
     <div>
-        <br/>
-        <div id="resultado" align="center">
-            asd
+        <br/>        
+        <div align='center' >
+            <h1>{{ carta.name }}</h1>
         </div>
+
+        <div class="row" align='center' >
+            <div>
+                <h4>Tipo</h4><br/>
+                {{ carta.type }}                
+            </div>
+            <div>
+                <h4>Colección</h4><br/>
+                {{ carta.cardSet }}                
+            </div>
+            <div align='right'>
+                <img src='{{ carta.img }}'><br/>
+                <img src='{{ carta.imgGold }}'>
+            </div>
+        </div>
+
     </div>
 
 {% endblock %}

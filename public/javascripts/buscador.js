@@ -21,14 +21,14 @@ function buscar(criterio) {
                 foto.setAttribute("alt", res[i].name);
 
                 foto.setAttribute("class", "img-fluid");
-/*
+                /*
+                 foto.setAttribute("onclick",
+                 "cambiar('imgN" + i +
+                 "','" + res[i].img +
+                 "','" + res[i].imgGold + "')");
+                 */
                 foto.setAttribute("onclick",
-                        "cambiar('imgN" + i +
-                        "','" + res[i].img +
-                        "','" + res[i].imgGold + "')");
-*/
-                foto.setAttribute("onclick",
-                        "verCarta('"+ res[i].name +"')");                        
+                        "verCarta('" + res[i].name + "')");
                 foto.setAttribute("src", res[i].img);
                 foto.setAttribute("src", res[i].img);
 
@@ -55,6 +55,9 @@ function pressEnter(criterio, event) {
 }
 
 
-function verCarta(nombre){
-    $.get('/buscador/getStats', {'carta': nombre.replace(" ", "+")});
+function verCarta(nombre) {
+    var gal = document.getElementById("resultado");
+    $.post('/buscador/getstats', {'carta': nombre}, function (res, req) {
+      document.body.innerHTML= res;
+    });
 }
