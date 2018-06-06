@@ -40,7 +40,6 @@ const guardarFavoritos = function (req, res) {
     } else {
         res.json({msj: "usuario_no_logueado"});
     }
-
 };
 
 module.exports = {
