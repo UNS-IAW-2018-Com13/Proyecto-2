@@ -1,7 +1,16 @@
 const mongoose = require('mongoose');
 
 const usuarioSchema = new mongoose.Schema({
-  userID: {
+  id: {
+    type: String
+  },
+  token: {
+    type: String
+  },
+  nombre: {
+    type: String
+  },
+  mail: {
     type: String
   },
   estilo: {
@@ -14,4 +23,4 @@ const usuarioSchema = new mongoose.Schema({
   }
 });
 
-mongoose.model('Usuario', usuarioSchema, 'Usuarios');
+module.exports = mongoose.model('Usuario', usuarioSchema, 'Usuarios');

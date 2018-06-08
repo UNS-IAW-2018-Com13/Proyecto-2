@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Partido = mongoose.model('Partido');
+const Usuario = mongoose.model('Usuario');
 
 var colPartidos;
 
@@ -10,12 +11,22 @@ const getPartidos = function (req, res) {
         } else {
             colPartidos = partidos;
             var prtds = obtenerPartidos();
-            res.render('partidos', {partidos: prtds});
+            if (req.user) {
+                Usuario.findOne({'id': req.user.id}, (err, resultado) => {
+                    if (err) {
+                        res.status(400).json(err);
+                    } else {
+                        res.render('partidos', {usuario: resultado, partidos: prtds});
+                    }
+                });
+            } else {
+                res.render('partidos', {partidos: prtds});
+            }
         }
     });
 };
 
-function obtenerPartidos(){
+function obtenerPartidos() {
     var resultado = new Array(colPartidos.length);
     for (var i = 0; i < colPartidos.length; i++) {
         resultado[i] = generarEstructuraPartido(colPartidos[i]);
@@ -27,18 +38,18 @@ function generarEstructuraPartido(partido) {
     var fec = partido.fecha;
 
     var hor = partido.hora;
-    
+
     var j1 = partido.jugador1;
-    
+
     var j2 = partido.jugador2;
-    
+
     var r1 = 0;
     var r2 = 0;
-    
-    for(var i = 0; i < partido.ganador.length; i++){
-        if(partido.ganador[i] === 1){
+
+    for (var i = 0; i < partido.ganador.length; i++) {
+        if (partido.ganador[i] === 1) {
             r1 += 1;
-        }else{
+        } else {
             r2 += 1;
         }
     }
@@ -55,5 +66,5 @@ function generarEstructuraPartido(partido) {
 }
 
 module.exports = {
-  getPartidos
+    getPartidos
 };

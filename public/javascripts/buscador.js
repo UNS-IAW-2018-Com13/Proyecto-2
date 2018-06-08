@@ -9,29 +9,30 @@ function buscar(criterio) {
             gal.appendChild(document.createTextNode("El criterio de búsqueda es muy corto"));
         else
         if (res.hasOwnProperty("error"))
-            if (document.getElementById(criterio).value === "")
-                gal.appendChild(document.createTextNode("Ingrese el nombre de una carta para buscar"));
-            else
-                gal.appendChild(document.createTextNode("No existen cartas con ese nombre"));
+            gal.appendChild(document.createTextNode(res.error));
+
+        else
+        if (res.length === 0)
+            gal.appendChild(document.createTextNode("No existen resultados con: " + document.getElementById(criterio).value));
         else
             for (var i = 0; i < res.length; i++) {
-                if (res[i] !== null) {
-                    foto = document.createElement("img");
-                    foto.setAttribute("id", "imgN" + i);
-                    foto.setAttribute("alt", res[i].name);
+                foto = document.createElement("img");
+                foto.setAttribute("id", "imgN" + i);
+                foto.setAttribute("alt", res[i].name);
 
-                    foto.setAttribute("class", "img-fluid");
+                foto.setAttribute("class", "img-fluid");
+                /*
+                 foto.setAttribute("onclick",
+                 "cambiar('imgN" + i +
+                 "','" + res[i].img +
+                 "','" + res[i].imgGold + "')");
+                 */
+                foto.setAttribute("onclick",
+                        "verCarta('" + res[i].name + "')");
+                foto.setAttribute("src", res[i].img);
+                foto.setAttribute("src", res[i].img);
 
-                    foto.setAttribute("onclick",
-                            "cambiar('imgN" + i +
-                            "','" + res[i].img +
-                            "','" + res[i].imgGold + "')");
-
-                    foto.setAttribute("src", res[i].img);
-                    foto.setAttribute("src", res[i].img);
-
-                    gal.appendChild(foto);
-                }
+                gal.appendChild(foto);
             }
     });
 }
@@ -44,4 +45,21 @@ function cambiar(id, normal, gold) {
     else
         i.src = normal;
 
+}
+
+
+function pressEnter(criterio, event) {
+    var x = event.which || event.keyCode;
+    if (x === 13)
+        buscar(criterio);
+}
+
+
+function verCarta(nombre) {
+    var sel = document.getElementById("pick");
+    $.post('/buscador/getstats', {'carta': nombre}, function (res, req) {
+        if (sel.firstChild)
+            sel.removeChild(sel.firstChild);
+        $(sel).append($(res));
+    });
 }

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Grupo = mongoose.model('Grupo');
 const Jugador = mongoose.model('Jugador');
 const Mazo = mongoose.model('Mazo');
+const Usuario = mongoose.model('Usuario');
 
 var colJugadores;
 var colGrupos;
@@ -24,7 +25,17 @@ const getGrupos = function (req, res) {
                             colJugadores = jugadores;
                             colMazos = mazos;
                             var grps = obtenerGrupos();
-                            res.render('grupos', {grupo_1: grps[0], grupo_2: grps[1], grupo_3: grps[2], grupo_4: grps[3]});
+                            if (req.user) {
+                                Usuario.findOne({'id': req.user.id}, (err, resultado) => {
+                                    if (err) {
+                                        res.status(400).json(err);
+                                    } else {
+                                        res.render('grupos', {usuario: resultado, grupo_1: grps[0], grupo_2: grps[1], grupo_3: grps[2], grupo_4: grps[3]});
+                                    }
+                                });
+                            } else {
+                                res.render('grupos', {grupo_1: grps[0], grupo_2: grps[1], grupo_3: grps[2], grupo_4: grps[3]});
+                            }   
                         }
                     });
                 }
@@ -50,7 +61,7 @@ function obtenerJugador(nombreJugador) {
 }
 
 function obtenerClasesMazosJugador(nombreMazo1, nombreMazo2, nombreMazo3) {
-    var resultado = ["","",""];
+    var resultado = ["", "", ""];
     for (var i = 0; i < colMazos.length; i++) {
         if (colMazos[i].nombre === nombreMazo1) {
             resultado[0] = colMazos[i].clase;
@@ -61,7 +72,7 @@ function obtenerClasesMazosJugador(nombreMazo1, nombreMazo2, nombreMazo3) {
         if (colMazos[i].nombre === nombreMazo3) {
             resultado[2] = colMazos[i].clase;
         }
-        if ((resultado[0] !== "")&&(resultado[1] !== "")&&(resultado[2] !== "")) {
+        if ((resultado[0] !== "") && (resultado[1] !== "") && (resultado[2] !== "")) {
             return resultado;
         }
     }
@@ -75,6 +86,8 @@ function generarEstructuraGrupo(grupo) {
         var jug = obtenerJugador(nom);
 
         var pun = jug.puntaje;
+        
+        var fav = jug.idFavorito;
 
         var maz1 = jug.mazos[0];
         var maz2 = jug.mazos[1];
@@ -84,6 +97,7 @@ function generarEstructuraGrupo(grupo) {
         var jsonObj = new Object();
         jsonObj.jugador = nom;
         jsonObj.puntaje = pun;
+        jsonObj.favorito = fav;
         jsonObj.mazo1 = clasMazs[0];
         jsonObj.mazo2 = clasMazs[1];
         jsonObj.mazo3 = clasMazs[2];

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Jugador = mongoose.model('Jugador');
 const Mazo = mongoose.model('Mazo');
+const Usuario = mongoose.model('Usuario');
 
 var colJugadores;
 var colMazos;
@@ -17,7 +18,17 @@ const getJugadores = function (req, res) {
                     colJugadores = jugadores;
                     colMazos = mazos;
                     var jgdrs = obtenerJugadores();
-                    res.render('jugadores', {jugadores: jgdrs});
+                    if (req.user) {
+                        Usuario.findOne({'id': req.user.id}, (err, resultado) => {
+                            if (err) {
+                                res.status(400).json(err);
+                            } else {
+                                res.render('jugadores', {usuario: resultado, jugadores: jgdrs});
+                            }
+                        });
+                    } else {
+                        res.render('jugadores', {jugadores: jgdrs});
+                    }
                 }
             });
         }
@@ -54,6 +65,8 @@ function generarEstructuraJugador(jugador) {
     var nom = jugador.nombre;
 
     var pun = jugador.puntaje;
+    
+    var fav = jugador.idFavorito;
 
     var maz1 = jugador.mazos[0];
     var maz2 = jugador.mazos[1];
@@ -63,6 +76,7 @@ function generarEstructuraJugador(jugador) {
     var jsonObj = new Object();
     jsonObj.nombre = nom;
     jsonObj.puntaje = pun;
+    jsonObj.favorito = fav;
     jsonObj.mazo1 = clasMazs[0];
     jsonObj.mazo2 = clasMazs[1];
     jsonObj.mazo3 = clasMazs[2];

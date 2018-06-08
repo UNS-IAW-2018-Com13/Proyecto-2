@@ -2,30 +2,19 @@ const mongoose = require('mongoose');
 const Usuario = mongoose.model('Usuario');
 
 const getIndex = function (req, res) {
-    res.render('index');
-};
-
-const guardarUsuario = function (req, res) {
-    Usuario.update({'userID': req.body.userID}, {'userID': req.body.userID},
-            {upsert: true, setDefaultsOnInsert: true}, (err, resultado) => {
-        if (err) {
-            res.status(400).json(err);
-        } else {
-            res.status(201).json(resultado);
-        }
-    });
-};
-
-const getUsuario = function (req, res) {
-    Usuario.findOne({'userID': req.body.userID}).exec((err, usr) => {
-        if (err) {
-            res.status(404).json(err);
-        } else {
-            res.json({estilo: usr.estilo, favoritos: usr.favoritos});
-        }
-    });
+    if(req.user){
+       Usuario.findOne({'id': req.user.id}, (err, resultado) => {
+            if (err) {
+                res.status(400).json(err);
+            } else {
+                res.render('index',{usuario: resultado});
+            }
+        });
+    }else{
+        res.render('index');
+    }
 };
 
 module.exports = {
-    getIndex, guardarUsuario, getUsuario
+    getIndex
 };

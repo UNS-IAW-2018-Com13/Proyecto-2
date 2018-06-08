@@ -1,4 +1,4 @@
-function completarModalJugadores(nombre, puntaje, I1, I2, I3){
+function completarModalJugadores(nombre, idFav, puntaje, I1, I2, I3){
    var titulo = document.getElementById("tituloVentana");
    titulo.removeChild(titulo.firstChild);
    titulo.appendChild(document.createTextNode(nombre));
@@ -17,7 +17,7 @@ function completarModalJugadores(nombre, puntaje, I1, I2, I3){
    avatar.setAttribute("height", "150");
    
    var fav = document.getElementById("favoritoJugador");
-   var iconFav = document.getElementById(nombre);
+   var iconFav = document.getElementById(idFav);
    fav.setAttribute("src", iconFav.src);
    fav.setAttribute("width", "30");
    fav.setAttribute("height", "30");
