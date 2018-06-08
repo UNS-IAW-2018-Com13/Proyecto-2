@@ -1,20 +1,8 @@
-{% extends 'layout.twig' %}
-
-{% block head %}
-    <script src="/javascripts/buscador.js"></script>
-    <style>
-        div > img {cursor: pointer;}
-    </style>
-{% endblock %}
-
-{% block body %}
-    <div>
         <br/>        
         <div align='center' >
             <h1>{{ carta.name }}</h1>
         </div>
-
-        <div class="row" align='center' >
+        <div class="row" >
             <div>
                 <h4>Tipo</h4><br/>
                 {{ carta.type }}                
@@ -28,7 +16,3 @@
                 <img src='{{ carta.imgGold }}'>
             </div>
         </div>
-
-    </div>
-
-{% endblock %}

@@ -56,8 +56,10 @@ function pressEnter(criterio, event) {
 
 
 function verCarta(nombre) {
-    var gal = document.getElementById("resultado");
+    var sel = document.getElementById("pick");
     $.post('/buscador/getstats', {'carta': nombre}, function (res, req) {
-      document.body.innerHTML= res;
+        if (sel.firstChild)
+            sel.removeChild(sel.firstChild);
+        $(sel).append($(res));
     });
 }

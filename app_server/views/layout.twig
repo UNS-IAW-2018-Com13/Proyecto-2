@@ -20,57 +20,58 @@
         <script src="/javascripts/estilos.js"></script>
         <script src="/javascripts/jugadores.js"></script>
         <script src="/javascripts/favoritos.js"></script>
-        <script src="/javascripts/buscador.js"></script>
 
     {% block head %}{% endblock %}
-    </head>
-    <body onload="cargar('{{usuario.estilo}}','{{usuario.favoritos}}');">
-        <nav id="principal" class="navbar navbar-expand-lg fixed-top">
-            <a class="navbar-brand" href="../">
-                <img src="/images/icons/icono.png" width="40" height="40">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuElements" aria-controls="menuElements" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">&#9776;</span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuElements">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../jugadores">Jugadores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../grupos">Grupos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../partidos">Partidos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../buscador">Buscador</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../estadisticas">Estadisticas</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li>
-                        {% if usuario %}
-                            <a href="/auth/logout" class="btn btn-primary">{{usuario.nombre}}</a>
-                        {% else %}
-                            <a href="/auth/facebook" class="btn btn-primary">Facebook</a>
-                        {% endif %}
-                    </li>
-                    <li class="nav-item dropdown">
-                        {% if usuario %}
-                            <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{usuario.estilo}}</a>
-                        {% else %}
-                            <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Standard</a>
-                        {% endif %}
-                        <div class="dropdown-menu" aria-labelledby="dropMenu">
-                            <a class="dropdown-item" id="desplegableI" onclick="cambiarEstilo('Standard', 'dropMenu');">Standard</a>
-                            <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('Naxxramas', 'dropMenu');">Naxxramas</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    {% block body %}{% endblock %}
+</head>
+<body onload="cargar('{{usuario.estilo}}', '{{usuario.favoritos}}');">
+    <nav id="principal" class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="../">
+            <img src="/images/icons/icono.png" width="40" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuElements" aria-controls="menuElements" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">&#9776;</span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuElements">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="../jugadores">Jugadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../grupos">Grupos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../partidos">Partidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../buscador">Buscador</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../estadisticas">Estadisticas</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li>
+                    {% if usuario %}
+                        <a href="/auth/logout" class="btn btn-primary">{{usuario.nombre}}</a>
+                    {% else %}
+                        <a href="/auth/facebook" class="btn btn-primary">Facebook</a>
+                    {% endif %}
+                </li>
+                <li class="nav-item dropdown">
+                    {% if usuario %}
+                        <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{usuario.estilo}}</a>
+                    {% else %}
+                        <a class="nav-link dropdown-toggle" id="dropMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Standard</a>
+                    {% endif %}
+                    <div class="dropdown-menu" aria-labelledby="dropMenu">
+                        <a class="dropdown-item" id="desplegableI" onclick="cambiarEstilo('Standard', 'dropMenu');">Standard</a>
+                        <a id="desplegableI" class="dropdown-item" onclick="cambiarEstilo('Naxxramas', 'dropMenu');">Naxxramas</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% block body %}{% endblock %}
+
+</body>
 </html>
