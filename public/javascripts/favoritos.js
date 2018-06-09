@@ -21,6 +21,7 @@ function obtenerImagenes(estilo) {
 function setearFavorito(idFav) {
     var estilo = obtenerEstilo();
     var fav = obtenerFavorito(idFav);
+    console.log(fav);
     if (fav === 0) {
         guardarFavorito(idFav, 1);
         if (estilo === "Standard") {
