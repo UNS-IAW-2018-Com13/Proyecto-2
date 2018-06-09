@@ -1,18 +1,34 @@
-        <br/>        
-        <div align='center' >
-            <h1>{{ carta.name }}</h1>
+<br/>        
+<div align='center'>
+    <h1>{{ carta.name }}</h1>
+</div>
+<div class="row" >
+    <div class="row col-sm-6" >
+    <div class="col-sm-12">
+        <br/>
+        <br/>
+         {{ carta.flavor }}
+    </div>
+        <div class="col-sm-4">
+            <h4>Tipo</h4><br/>
+            {{ carta.type }}
         </div>
-        <div class="row" >
-            <div>
-                <h4>Tipo</h4><br/>
-                {{ carta.type }}                
-            </div>
-            <div>
-                <h4>Colección</h4><br/>
-                {{ carta.cardSet }}                
-            </div>
-            <div align='right'>
-                <img src='{{ carta.img }}'><br/>
-                <img src='{{ carta.imgGold }}'>
-            </div>
+        <div class="col-sm-4">
+            <h4>Colección</h4><br/>
+            {{ carta.cardSet }}
         </div>
+         <div class="col-sm-4">
+            <h4>Rareza</h4><br/>
+            {{ carta.rarity }}
+        </div>
+    <div class="col-sm-12">
+        <br/>
+        <br/>
+        <br/>
+    </div>
+    </div>
+    <div class="row col-sm-6" align='right'>
+        <img src='{{ carta.img }}'>
+        <img src='{{ carta.imgGold }}'>
+    </div>
+</div>
