@@ -23,6 +23,7 @@ function setearFavorito(idFav) {
     var fav = obtenerFavorito(idFav);
     console.log(fav);
     if (fav === 0) {
+        console.log("es cero");
         guardarFavorito(idFav, 1);
         if (estilo === "Standard") {
             document.getElementById(idFav).src = "/images/icons/fav_std.png";
