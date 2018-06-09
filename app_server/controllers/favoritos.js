@@ -8,8 +8,8 @@ var userFavs;
 var playerFavCount;
 
 const guardarFavoritos = function (req, res) {
-    var idFav = req.body.idFavorito;
-    var favMark = req.body.fav;
+    var idFav = JSON.parse(req.body.idFavorito);
+    var favMark = JSON.parse(req.body.fav);
     if (req.user) {
         Usuario.findOne({'id': req.user.id}, (err, usr) => {
             if (err) {
