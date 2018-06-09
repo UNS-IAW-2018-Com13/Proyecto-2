@@ -72,7 +72,7 @@
             // sample data
             var datos = [
             {% for n in 0..favoritos.jugadores.length-1 %}
-                        {name: '{{favoritos.jugadores[n]}}', count: {{n+favoritos.votos[n]}} },
+                        {name: '{{favoritos.jugadores[n]}}', count: {{favoritos.votos[n]}} },
             {% endfor %}
                             {name: ' ', count: 0}
                         ];
