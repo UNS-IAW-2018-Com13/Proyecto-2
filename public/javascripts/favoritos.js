@@ -22,7 +22,7 @@ function setearFavorito(idFav) {
     var estilo = obtenerEstilo();
     var fav = obtenerFavorito(idFav);
     console.log(fav);
-    if (fav === 0) {
+    if (fav === "0") {
         console.log("es cero");
         guardarFavorito(idFav, 1);
         if (estilo === "Standard") {
@@ -52,7 +52,7 @@ function obtenerFavorito(idFav) {
 function obtenerTodosFavoritos() {
     var fav = localStorage.getItem("Favoritos");
     if (fav === null) {
-        return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        return [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     }
     return JSON.parse(fav);
 }
