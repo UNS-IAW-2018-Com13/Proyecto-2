@@ -19,7 +19,7 @@ const usuarioSchema = new mongoose.Schema({
   },
   favoritos: {
     type: [Number],
-    default: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    default: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   }
 });
 
