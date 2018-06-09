@@ -23,7 +23,7 @@
 
     {% block head %}{% endblock %}
 </head>
-<body onload="cargar('{{usuario.estilo}}', {{usuario.favoritos}});">
+<body onload="cargar('{{usuario.estilo}}', [{{usuario.favoritos}}]);">
     <nav id="principal" class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand" href="../">
             <img src="/images/icons/icono.png" width="40" height="40">
