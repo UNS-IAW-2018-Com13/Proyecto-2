@@ -42,15 +42,19 @@ function generarEstructuraPartido(partido) {
     var j1 = partido.jugador1;
 
     var j2 = partido.jugador2;
+    
+    var com = partido.comentario;
 
     var r1 = 0;
     var r2 = 0;
 
-    for (var i = 0; i < partido.ganador.length; i++) {
-        if (partido.ganador[i] === 1) {
+    for (var i = 0; i < partido.rounds.length; i++) {
+        if (partido.rounds[i].ganador === j1) {
             r1 += 1;
         } else {
-            r2 += 1;
+            if (partido.rounds[i].ganador === j2) {
+                r2 += 1;
+            }
         }
     }
 
@@ -61,6 +65,7 @@ function generarEstructuraPartido(partido) {
     jsonObj.resultado1 = r1;
     jsonObj.jugador2 = j2;
     jsonObj.resultado2 = r2;
+    jsonObj.comentario = com;
 
     return jsonObj;
 }
