@@ -1,4 +1,4 @@
-function completarModalJugadores(nombre, idFav, puntaje, I1, I2, I3, img){
+function completarModalJugadores(nombre, idFav, puntaje, I1, I2, I3){
    var titulo = document.getElementById("tituloVentana");
    titulo.removeChild(titulo.firstChild);
    titulo.appendChild(document.createTextNode(nombre));
@@ -12,7 +12,7 @@ function completarModalJugadores(nombre, idFav, puntaje, I1, I2, I3, img){
    puntajeJugador.appendChild(document.createTextNode(puntaje));
    
    var avatar = document.getElementById("avatarJugador");
-   avatar.setAttribute("src", img);
+   avatar.setAttribute("src","images/portraits/portrait"+nombre+".jpg");
    avatar.setAttribute("width", "150");
    avatar.setAttribute("height", "150");
    

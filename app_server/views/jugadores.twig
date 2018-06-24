@@ -14,13 +14,13 @@
             <tbody>
                 {% for jugador in jugadores %}
                     <tr>
-                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.favorito }}', '{{ jugador.puntaje }}', '{{ jugador.mazo1 }}', '{{ jugador.mazo2 }}', '{{ jugador.mazo3 }}', '{{ jugador.imagen }}');">
-                            <img src="{{ jugador.imagen }}" width="42" heigth=42" alt="AVATAR">
+                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.favorito }}', '{{ jugador.puntaje }}', '{{ jugador.mazo1 }}', '{{ jugador.mazo2 }}', '{{ jugador.mazo3 }}');">
+                            <img src="/images/portraits/portrait{{ jugador.nombre }}.jpg" width="42" heigth=42" alt="AVATAR">
                         </td>
-                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.favorito }}', '{{ jugador.puntaje }}', '{{ jugador.mazo1 }}', '{{ jugador.mazo2 }}', '{{ jugador.mazo3 }}', '{{ jugador.imagen }}');">
+                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.favorito }}', '{{ jugador.puntaje }}', '{{ jugador.mazo1 }}', '{{ jugador.mazo2 }}', '{{ jugador.mazo3 }}');">
                             {{ jugador.nombre }}
                         </td>
-                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.favorito }}', '{{ jugador.puntaje }}', '{{ jugador.mazo1 }}', '{{ jugador.mazo2 }}', '{{ jugador.mazo3 }}', '{{ jugador.imagen }}');">
+                        <td data-toggle="modal" data-target="#ventanaJugador" onclick="completarModalJugadores('{{ jugador.nombre }}', '{{ jugador.favorito }}', '{{ jugador.puntaje }}', '{{ jugador.mazo1 }}', '{{ jugador.mazo2 }}', '{{ jugador.mazo3 }}');">
                             {{ jugador.puntaje }}
                         </td>
                         <td onclick="setearFavorito('{{ jugador.favorito }}');">
