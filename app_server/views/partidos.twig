@@ -16,8 +16,7 @@
             <tbody>
                 {% for partido in partidos %}
                     <tr>
-                        <!-->Esta es la linea que tira el error: Uncaught SyntaxError: Invalid or unexpected token. Marca en rojo el ">" q cierra el tag del td <-->
-                        <td data-toggle="modal" data-target="#ventanaPartido" onclick="completarModalPartidos('{{ partido|json_encode }}');">
+                        <td data-toggle="modal" data-target="#ventanaPartido" onclick='completarModalPartidos("{{ partido|json_encode }}");'>
                             {{ partido.fecha }}
                         </td>
                         <td>
