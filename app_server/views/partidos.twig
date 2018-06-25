@@ -11,12 +11,17 @@
                     <th>Resultado</th>
                     <th>Jugador</th>
                     <th>Resultado</th>
+                    <th>Comentario</th>
                 </tr>
             </thead>
             <tbody>
                 {% for partido in partidos %}
                     <tr>
+<<<<<<< HEAD
                         <td data-toggle="modal" data-target="#ventanaPartido" onclick='completarModalPartidos("{{ partido|json_encode }}");'>
+=======
+                        <td>
+>>>>>>> parent of 304386d... asd
                             {{ partido.fecha }}
                         </td>
                         <td>
@@ -34,107 +39,12 @@
                         <td>
                             {{ partido.resultado2 }}
                         </td>
+                        <td>
+                            {{ partido.comentario }}
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-    </div>
-
-    <div class="modal fade" id="ventanaPartido" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header" id="ventanaTitulo">
-                    <h5 class="modal-title" id="tituloVentana">PARTIDO X</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div style="text-align:center">GANADOR</div>
-                        <div class="row">
-                            <div class="col-5"></div>
-                            <div class="col-2">
-                                <img src="images/icons/iconoL.png" id="imgGanador" width="42" heigth=42" alt="GANADOR">
-                            </div>
-                            <div class="col-5"></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="container-fluid">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th id="titJugador1">JUGADOR 1</th>
-                                    <th>V.S.</th>
-                                    <th id="titJugador2">JUGADOR 2</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ1R1" width="42" heigth=42" alt="MAZO JUGADOR 1 ROUND 1">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/vs.png" width="42" heigth=42" alt="VS">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ2R1" width="42" heigth=42" alt="MAZO JUGADOR 2 ROUND 1">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ1R2" width="42" heigth=42" alt="MAZO JUGADOR 1 ROUND 2">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/vs.png" width="42" heigth=42" alt="VS">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ2R2" width="42" heigth=42" alt="MAZO JUGADOR 2 ROUND 2">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ1R3" width="42" heigth=42" alt="MAZO JUGADOR 1 ROUND 3">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/vs.png" width="42" heigth=42" alt="VS">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ2R3" width="42" heigth=42" alt="MAZO JUGADOR 2 ROUND 3">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ1R4" width="42" heigth=42" alt="MAZO JUGADOR 1 ROUND 4">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/vs.png" width="42" heigth=42" alt="VS">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ2R4" width="42" heigth=42" alt="MAZO JUGADOR 2 ROUND 4">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ1R5" width="42" heigth=42" alt="MAZO JUGADOR 1 ROUND 5">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/vs.png" width="42" heigth=42" alt="VS">
-                                    </td>
-                                    <td>
-                                        <img src="images/icons/iconoL.png" id="imgMJ2R5" width="42" heigth=42" alt="MAZO JUGADOR 2 ROUND 5">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="container-fluid">
-                            <div style="text-align:center">COMENTARIO</div>
-                            <div id="coment" style="text-align:center">...</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 {% endblock %}
