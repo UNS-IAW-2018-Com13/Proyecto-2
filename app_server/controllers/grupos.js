@@ -3,10 +3,12 @@ const Grupo = mongoose.model('Grupo');
 const Jugador = mongoose.model('Jugador');
 const Mazo = mongoose.model('Mazo');
 const Usuario = mongoose.model('Usuario');
+const Imagen = mongoose.model('Imagen');
 
 var colJugadores;
 var colGrupos;
 var colMazos;
+var allAvatar;
 
 const getGrupos = function (req, res) {
     Grupo.find().exec((err, grupos) => {
@@ -21,21 +23,28 @@ const getGrupos = function (req, res) {
                         if (err) {
                             res.status(404).json(err);
                         } else {
-                            colGrupos = grupos;
-                            colJugadores = jugadores;
-                            colMazos = mazos;
-                            var grps = obtenerGrupos();
-                            if (req.user) {
-                                Usuario.findOne({'id': req.user.id}, (err, resultado) => {
-                                    if (err) {
-                                        res.status(400).json(err);
+                            Imagen.find().exec((err, imagenes) => {
+                                if (err) {
+                                    res.status(404).json(err);
+                                } else {
+                                    colGrupos = grupos;
+                                    colJugadores = jugadores;
+                                    colMazos = mazos;
+                                    allAvatar = imagenes;
+                                    var grps = obtenerGrupos();
+                                    if (req.user) {
+                                        Usuario.findOne({'id': req.user.id}, (err, resultado) => {
+                                            if (err) {
+                                                res.status(400).json(err);
+                                            } else {
+                                                res.render('grupos', {usuario: resultado, grupo_1: grps[0], grupo_2: grps[1], grupo_3: grps[2], grupo_4: grps[3]});
+                                            }
+                                        });
                                     } else {
-                                        res.render('grupos', {usuario: resultado, grupo_1: grps[0], grupo_2: grps[1], grupo_3: grps[2], grupo_4: grps[3]});
+                                        res.render('grupos', {grupo_1: grps[0], grupo_2: grps[1], grupo_3: grps[2], grupo_4: grps[3]});
                                     }
-                                });
-                            } else {
-                                res.render('grupos', {grupo_1: grps[0], grupo_2: grps[1], grupo_3: grps[2], grupo_4: grps[3]});
-                            }   
+                                }
+                            });
                         }
                     });
                 }
@@ -82,11 +91,17 @@ function generarEstructuraGrupo(grupo) {
     var resultado = new Array(grupo.integrantes.length);
     for (var i = 0; i < grupo.integrantes.length; i++) {
         var nom = grupo.integrantes[i];
-
+        
+        var avatar = "";
+        for (j = 0; j < allAvatar.length; j++) {
+            if (allAvatar[j].nombre === nom) {
+                avatar = allAvatar[j].imagen;
+            }
+        }
         var jug = obtenerJugador(nom);
 
         var pun = jug.puntaje;
-        
+
         var fav = jug.idFavorito;
 
         var maz1 = jug.mazos[0];
@@ -96,6 +111,7 @@ function generarEstructuraGrupo(grupo) {
 
         var jsonObj = new Object();
         jsonObj.jugador = nom;
+        jsonObj.avatar = avatar;
         jsonObj.puntaje = pun;
         jsonObj.favorito = fav;
         jsonObj.mazo1 = clasMazs[0];
