@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 const Jugador = mongoose.model('Jugador');
 const Mazo = mongoose.model('Mazo');
 const Usuario = mongoose.model('Usuario');
+const Imagen = mongoose.model('Imagen');
 
 var colJugadores;
 var colMazos;
+var allAvatar;
 
 const getJugadores = function (req, res) {
     Jugador.find().exec((err, jugadores) => {
@@ -15,20 +17,27 @@ const getJugadores = function (req, res) {
                 if (err) {
                     res.status(404).json(err);
                 } else {
-                    colJugadores = jugadores;
-                    colMazos = mazos;
-                    var jgdrs = obtenerJugadores();
-                    if (req.user) {
-                        Usuario.findOne({'id': req.user.id}, (err, resultado) => {
-                            if (err) {
-                                res.status(400).json(err);
+                    Imagen.find().exec((err, imagenes) => {
+                        if (err) {
+                            res.status(404).json(err);
+                        } else {
+                            colJugadores = jugadores;
+                            colMazos = mazos;                            
+                            allAvatar = imagenes;
+                            var jgdrs = obtenerJugadores();
+                            if (req.user) {
+                                Usuario.findOne({'id': req.user.id}, (err, resultado) => {
+                                    if (err) {
+                                        res.status(400).json(err);
+                                    } else {
+                                        res.render('jugadores', {usuario: resultado, jugadores: jgdrs});
+                                    }
+                                });
                             } else {
-                                res.render('jugadores', {usuario: resultado, jugadores: jgdrs});
+                                res.render('jugadores', {jugadores: jgdrs});
                             }
-                        });
-                    } else {
-                        res.render('jugadores', {jugadores: jgdrs});
-                    }
+                        }
+                    });
                 }
             });
         }
@@ -63,9 +72,15 @@ function obtenerClasesMazosJugador(nombreMazo1, nombreMazo2, nombreMazo3) {
 
 function generarEstructuraJugador(jugador) {
     var nom = jugador.nombre;
+    var avatar="";
+    for(i=0; i<allAvatar.length; i++){
+        if (allAvatar[i].nombre===nom){
+            avatar=allAvatar[i].imagen;
+        }
+    }
 
     var pun = jugador.puntaje;
-    
+
     var fav = jugador.idFavorito;
 
     var maz1 = jugador.mazos[0];
@@ -75,6 +90,7 @@ function generarEstructuraJugador(jugador) {
 
     var jsonObj = new Object();
     jsonObj.nombre = nom;
+    jsonObj.avatar = avatar;
     jsonObj.puntaje = pun;
     jsonObj.favorito = fav;
     jsonObj.mazo1 = clasMazs[0];
