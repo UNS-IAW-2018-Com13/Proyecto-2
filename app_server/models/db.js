@@ -41,3 +41,4 @@ require('./grupos');
 require('./partidos');
 require('./mazos');
 require('./usuarios');
+require('./imagenes');
