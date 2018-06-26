@@ -3,9 +3,9 @@ var Usuario = require('../models/usuarios');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.use(new FacebookStrategy({
-    clientID: "177693619614275",
-    clientSecret: "976e401b1f54e23d407c91455defb64a",
-    callbackURL: 'https://torneo-hs.herokuapp.com/auth/facebook/callback',
+    clientID: process.env.ID_CLI,
+    clientSecret: process.env.SECRET_CLI,
+    callbackURL: process.env.CB_URL,
     profileFields: ['id', 'name', 'email']
 }, function (token, refreshToken, profile, done) {
     process.nextTick(function () {
